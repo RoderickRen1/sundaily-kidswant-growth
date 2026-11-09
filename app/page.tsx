@@ -40,13 +40,19 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="section resource-section">
-        <div className="resource-visual" data-reveal><img src="/assets/source/sdl-omega.png" alt="圣迪乐Omega-3营养蛋产品组合" /></div>
-        <div className="resource-copy" data-reveal>
-          <p className="eyebrow">资源互补</p><h2>一边是高品质营养产品<br />一边是家庭用户与服务场景</h2>
-          <div className="resource-lines"><p><b>圣迪乐</b> 产品、全产业链、品质管理、生产基地与履约能力</p><p><b>孩子王</b> 家庭会员、全渠道触点、亲子活动与家庭服务</p></div>
-          <div className="joint-value">共同创造家庭营养消费新场景</div>
+      <section id="resources" className="section resource-section">
+        <div className="resource-heading" data-reveal><p className="eyebrow">02 / 资源互补 · BETTER TOGETHER</p><h2>你有<em>好蛋</em>，<br className="resource-mobile-break" />我有<em>好伴</em>。</h2><p>把产品的实力，接上家庭的日常。</p></div>
+        <div className="resource-stage" data-reveal>
+          <div className="resource-stage-label"><span>圣迪乐 · 营养产品矩阵</span><span>GOOD EGGS, GREAT POSSIBILITIES</span></div>
+          <div className="resource-visual"><img src="/assets/source/sdl-omega.png" alt="圣迪乐完整营养蛋产品组合，包含Omega-3营养蛋等系列" /></div>
+          <div className="resource-stage-caption"><span>从一枚好蛋出发</span><b>让营养走进每一张家庭餐桌</b></div>
         </div>
+        <div className="resource-copy" data-reveal>
+          <article className="partner-card partner-sdl"><div className="partner-top"><span>01 / 产品与品质</span><b>圣迪乐</b></div><h3>把好营养，<br />准备好。</h3><p>营养蛋产品、全产业链与品质管理，连接生产基地和履约能力。</p><div className="partner-tags"><span>营养产品</span><span>品质溯源</span><span>供应履约</span></div></article>
+          <div className="partner-plus" aria-hidden="true">×</div>
+          <article className="partner-card partner-kw"><div className="partner-top"><span>02 / 用户与场景</span><b>孩子王</b></div><h3>让好营养，<br />找到家。</h3><p>家庭会员、全渠道触点与亲子服务，让营养融入购买、体验和陪伴。</p><div className="partner-tags"><span>家庭会员</span><span>全渠道触点</span><span>亲子服务</span></div></article>
+        </div>
+        <div className="resource-result" data-reveal><span>一起，把一盒蛋的故事讲长。</span><p>早餐有营养 <i>→</i> 周末有体验 <i>→</i> 成长有陪伴</p><a href="#blueprint">探索五大合作方向 <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section className="section insight-section">
