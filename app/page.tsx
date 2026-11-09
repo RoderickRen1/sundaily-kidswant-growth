@@ -50,7 +50,7 @@ export default function Home() {
         </div>
         <div className="opportunity-map" data-reveal>
           <figure className="opportunity-photo">
-            <img src="/assets/source/sdl-family.png" alt="家庭早餐与亲子陪伴场景" />
+            <img src="/assets/source/opportunity-family-breakfast.png" alt="妈妈和孩子一起准备营养早餐的温暖家庭场景" />
             <figcaption><span>共同用户</span><b>正在为孩子成长做选择的家庭</b></figcaption>
             <div className="photo-badge"><HeartHandshake size={20} /><span>圣迪乐 × 孩子王</span></div>
           </figure>
