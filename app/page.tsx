@@ -128,7 +128,7 @@ export default function Home() {
         <div className="resource-result" data-reveal><span>一起，把一盒蛋的故事讲长。</span><p>早餐有营养 <i>→</i> 周末有体验 <i>→</i> 成长有陪伴</p><a href="#blueprint">探索五大合作方向 <span aria-hidden="true">↗</span></a></div>
       </section>
 
-      <section className="section insight-section">
+      <section id="insight" className="section insight-section">
         <div className="section-index">03 / INSIGHT</div>
         <div className="insight-head" data-reveal><p className="eyebrow">消费者洞察 · EVIDENCE-LED</p><h2>家庭的一顿早餐，<br />从来不只由<em>一个人</em>决定</h2><p className="insight-lead">基于家庭食品决策、亲子喂养与儿童参与研究建立的洞察框架。点击四个关键变量，进入研究依据与项目启示。</p></div>
         <div className="decision-orbit" data-reveal>
