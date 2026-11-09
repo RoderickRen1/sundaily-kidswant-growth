@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Baby, Building2, CalendarHeart, Gift, HeartHandshake, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect } from 'react';
 
 export default function Home() {
@@ -44,13 +44,25 @@ export default function Home() {
       </section>
       <section id="opportunity" className="section opportunity">
         <div className="section-index">01 / OPPORTUNITY</div>
-        <div className="section-grid">
-          <div data-reveal><p className="eyebrow">战略合作机会</p><h2>从母婴消费走向<br /><em>家庭营养</em></h2></div>
-          <div className="opportunity-copy" data-reveal>
-            <p>孩子王的家庭触点与会员服务能力，与圣迪乐高品质营养蛋及全产业链能力形成互补。</p>
-            <div className="opportunity-list">{['家庭营养消费','日常早餐场景','亲子成长体验','会员持续经营','礼赠与企业关怀'].map((item,i)=><div key={item}><span>0{i+1}</span>{item}</div>)}</div>
+        <div className="opportunity-heading" data-reveal>
+          <div><p className="eyebrow">战略合作机会 · OPPORTUNITY</p><h2>不止卖一盒蛋，<br />共同经营一个家庭的<em>营养成长</em></h2></div>
+          <p>圣迪乐提供可信赖的营养产品与品质内容，孩子王提供家庭用户、消费场景与长期服务。双方的机会，在于把一次购买延展为持续陪伴。</p>
+        </div>
+        <div className="opportunity-map" data-reveal>
+          <figure className="opportunity-photo">
+            <img src="/assets/source/sdl-family.png" alt="家庭早餐与亲子陪伴场景" />
+            <figcaption><span>共同用户</span><b>正在为孩子成长做选择的家庭</b></figcaption>
+            <div className="photo-badge"><HeartHandshake size={20} /><span>圣迪乐 × 孩子王</span></div>
+          </figure>
+          <div className="opportunity-cards">
+            <article className="op-card op-card-primary"><span className="op-number">01</span><ShoppingBasket /><div><b>商品零售</b><p>用7天早餐实验室创造首购理由</p></div><small>日常持续</small></article>
+            <article className="op-card"><span className="op-number">02</span><CalendarHeart /><div><b>会员经营</b><p>用30天成长计划建立复购连接</p></div><small>每月循环</small></article>
+            <article className="op-card"><span className="op-number">03</span><Baby /><div><b>亲子共创</b><p>用周末活动形成参与与内容传播</p></div><small>月度 / 双月</small></article>
+            <article className="op-card"><span className="op-number">04</span><Building2 /><div><b>品质研学</b><p>用一枚鸡蛋的旅程深化品质信任</p></div><small>季度 / 假期</small></article>
+            <article className="op-card"><span className="op-number">05</span><Gift /><div><b>节庆礼赠</b><p>把家庭关怀延展至企业客户</p></div><small>关键节庆</small></article>
           </div>
         </div>
+        <div className="opportunity-path" data-reveal><span>一次购买</span><i>创造接触</i><span>会员连接</span><i>培养习惯</i><span>亲子参与</span><i>深化信任</i><span>家庭与企业增量</span></div>
       </section>
       <section id="resources" className="section resource-section">
         <div className="resource-heading" data-reveal><p className="eyebrow">02 / 资源互补 · BETTER TOGETHER</p><h2>你有<em>好蛋</em>，<br className="resource-mobile-break" />我有<em>好伴</em>。</h2><p>把产品的实力，接上家庭的日常。</p></div>
