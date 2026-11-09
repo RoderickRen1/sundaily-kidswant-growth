@@ -69,11 +69,18 @@ const zoneDetails = [
   {code:'C',en:'CREATIVE STUDIO',title:'家庭早餐创意工坊',subtitle:'让亲子共同完成一份可以在家复做的早餐作品。',purpose:'根据门店条件选择非烹饪互动、食谱拼图或成品展示，强调亲子协作与可复制性。',steps:['抽取早餐主题','共同完成食谱拼图','为作品命名','生成家庭食谱卡'],setup:['创意主题转盘','食谱积木卡','作品展示台','家庭合影模板'],roles:'孩子负责创意与命名，家长负责选择可复做方案，工作人员提供安全与流程支持。',time:'15—20分钟',output:'家庭原创食谱卡 + 30天成长计划内容入口',research:'观察亲子分工、孩子偏好以及家庭愿意持续复做的条件。',theme:'creative'}
 ];
 
+const journeyLevels = [
+  {level:'LEVEL 01',title:'门店微研学',en:'STORE DISCOVERY',purpose:'把孩子王门店变成多数家庭都能进入的第一站，用店中店与品牌堆头完成轻量品质启蒙。',experience:['找到一枚蛋的4个身份线索','观察包装与营养标签','完成从产地到餐桌路径拼图'],value:'低门槛、可复制、覆盖面广；孩子获得观察与信息识别能力，家长建立可验证的品质认知。',output:'门店探索护照 + Level 2解锁码',theme:'store'},
+  {level:'LEVEL 02',title:'航天主题亲子探索',en:'SPACE NUTRITION MISSION',purpose:'将营养、科学探索与任务机制结合，设计“太空营养补给站”等亲子体验内容。',experience:['领取太空营养任务简报','完成密闭环境食品与营养知识互动','设计一份想象中的太空早餐补给'],value:'用儿童熟悉的航天想象激发科学兴趣，让品牌从产品知识延伸到营养科学与探索精神。',output:'航天主题任务徽章 + Level 3优先报名资格',theme:'space'},
+  {level:'LEVEL 03',title:'真实生产基地深度研学',en:'REAL FARM JOURNEY',purpose:'在满足基地安全、卫生防疫与接待条件的前提下，让限定家庭看到养殖、检测、分级与自动化包装。',experience:['认识养殖环境与生物安全边界','观察品质检测与分级逻辑','参观智能高效自动化处理与包装流程'],value:'把抽象的“全产业链品质”变成可见证据，强化理解、信任与长期品牌记忆。',output:'基地研学证书 + 家庭溯源影像内容',theme:'base'}
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
   const [activeDay, setActiveDay] = useState<number | null>(null);
   const [growthAction, setGrowthAction] = useState(0);
   const [activeZone, setActiveZone] = useState<number | null>(null);
+  const [journeyLevel, setJourneyLevel] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -262,10 +269,18 @@ export default function Home() {
         </article>
       </div>}
 
-      <section className="section journey-section">
-        <div className="journey-title" data-reveal><p className="eyebrow">一枚鸡蛋的成长旅行</p><h2>把品质溯源变成<br />可体验、可理解、可分享的成长旅程</h2></div>
-        <div className="journey-map" data-reveal><div><span>LEVEL 01</span><b>门店微研学</b><p>包装、生产知识与品质互动</p></div><div><span>LEVEL 02</span><b>数字研学</b><p>视频、数字内容与互动任务</p></div><div className="journey-feature"><span>LEVEL 03</span><b>真实生产基地研学</b><p>在符合食品、生产与生物安全管理的前提下，了解养殖、品质检测和分级包装。</p></div></div>
-        <div className="journey-photo" data-reveal><img src="/assets/source/sdl-base.png" alt="圣迪乐自动化蛋品生产流程" /></div>
+      <section id="growth-journey" className="section journey-section">
+        <div className="journey-title" data-reveal><p className="eyebrow">一枚鸡蛋的成长旅行 · THREE-LEVEL LEARNING JOURNEY</p><h2>从门店启蒙，到航天探索，<br />再走进<em>真实生产基地</em></h2><p>不是一次孤立的工厂参观，而是一条由会员行为逐步解锁、让品质持续变得可见的成长路径。</p></div>
+        <div className="journey-progress" data-reveal>{journeyLevels.map((level,i)=><button type="button" className={i===journeyLevel?'active':''} onClick={()=>setJourneyLevel(i)} key={level.level}><span>{level.level}</span><b>{level.title}</b><small>{i===0?'多数家庭':i===1?'主题合作构想':'限定名额'}</small><i>{i<2?'→':'★'}</i></button>)}</div>
+        <div className={`journey-stage stage-${journeyLevels[journeyLevel].theme}`} data-reveal>
+          <div className="journey-visual">
+            {journeyLevel===0 && <div className="store-ui"><div className="store-sign"><span className="egg-mark"><span /></span><b>圣迪乐<br/>品质探索站</b><small>SHOP-IN-SHOP</small></div><div className="store-shelves"><i /><i /><i /></div><div className="product-stack"><span>品质蛋</span><span>营养蛋</span><span>溯源卡</span></div><div className="store-task"><span>今日任务 01</span><b>找到包装上的4个品质线索</b><i>START →</i></div></div>}
+            {journeyLevel===1 && <div className="space-ui"><div className="space-grid"/><div className="space-orbit orbit-a"/><div className="space-orbit orbit-b"/><div className="space-egg"><span>MISSION</span><b>太空营养<br/>补给站</b><small>SPACE NUTRITION</small></div><div className="space-data"><span>01 营养补给</span><span>02 科学实验</span><span>03 太空早餐</span></div><div className="space-status">MISSION STATUS <b>READY</b></div></div>}
+            {journeyLevel===2 && <div className="base-ui"><img src="/assets/source/sdl-base.png" alt="圣迪乐智能高效自动化蛋品处理和包装流程"/><div className="base-overlay"/><div className="base-label"><span>REAL PRODUCTION BASE</span><b>智能高效<br/>自动化生产现场</b><p>养殖环境 → 品质检测 → 分级包装</p></div><div className="base-points"><i>01 检测</i><i>02 分级</i><i>03 包装</i></div></div>}
+          </div>
+          <div className="journey-detail"><div className="journey-kicker"><span>{journeyLevels[journeyLevel].level}</span><i>{journeyLevels[journeyLevel].en}</i></div><h3>{journeyLevels[journeyLevel].title}</h3><p className="journey-purpose">{journeyLevels[journeyLevel].purpose}</p><div className="journey-experience"><span>孩子在这里完成什么</span>{journeyLevels[journeyLevel].experience.map((x,i)=><div key={x}><i>0{i+1}</i><b>{x}</b></div>)}</div><div className="journey-value"><span>提供的体验与附加价值</span><p>{journeyLevels[journeyLevel].value}</p></div><div className="journey-output"><span>完成后获得</span><b>{journeyLevels[journeyLevel].output}</b></div>{journeyLevel===1&&<p className="space-disclaimer">航天主题亲子活动为合作构想，需在相关合作权益、知识产权与授权确认后推进，不代表已达成航天机构合作。</p>}</div>
+        </div>
+        <div className="journey-linkage" data-reveal><span>7天品质侦探任务</span><i>→</i><span>30天成长值累积</span><i>→</i><span>门店微研学</span><i>→</i><span>航天主题探索</span><i>→</i><span>基地研学资格</span></div>
       </section>
 
       <section className="section gifting-section">
