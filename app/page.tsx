@@ -63,10 +63,17 @@ const growthActions = [
   {name:'反馈行为',en:'SHARE',points:'+10',desc:'自愿提供产品与早餐反馈',result:'沉淀可用洞察，不强制公开分享',icon:'03'}
 ];
 
+const zoneDetails = [
+  {code:'A',en:'NUTRITION LAB',title:'小小营养搭配师',subtitle:'把“均衡早餐”变成孩子可以动手完成的组合实验。',purpose:'孩子与家长通过食物卡共同设计一份早餐，理解食物多样性；不把单一食品包装成万能营养方案。',steps:['领取家庭任务盘','从4类食物卡中选择','完成早餐组合','营养师给出轻量提示'],setup:['磁吸食物卡墙','家庭实验餐盘','5/10/15分钟标签','组合结果拍照位'],roles:'孩子负责选择与摆放，家长负责讨论现实可行性，工作人员只做引导、不替家庭作答。',time:'12—15分钟',output:'一张家庭早餐组合卡 + 可带走的进阶任务',research:'记录家庭准备时间、常见早餐搭配和执行障碍。',theme:'nutrition'},
+  {code:'B',en:'EGG DETECTIVE',title:'鸡蛋品质侦探',subtitle:'把看不见的品质管理，转化为孩子可以寻找的真实线索。',purpose:'孩子识别生产日期、包装信息、营养标签与产品来源，圣迪乐展示可验证的品质信息，而不是只讲品牌口号。',steps:['领取侦探档案','寻找4个包装线索','扫描溯源入口','完成真假线索判断'],setup:['放大镜与线索卡','真实产品包装','品质档案抽屉','溯源互动屏'],roles:'孩子负责寻找线索，家长帮助阅读信息，品牌讲解员解释信息边界与溯源逻辑。',time:'10—12分钟',output:'品质侦探徽章 + 数字溯源任务入口',research:'了解家长购买品质鸡蛋时最关注的可验证信息。',theme:'detective'},
+  {code:'C',en:'CREATIVE STUDIO',title:'家庭早餐创意工坊',subtitle:'让亲子共同完成一份可以在家复做的早餐作品。',purpose:'根据门店条件选择非烹饪互动、食谱拼图或成品展示，强调亲子协作与可复制性。',steps:['抽取早餐主题','共同完成食谱拼图','为作品命名','生成家庭食谱卡'],setup:['创意主题转盘','食谱积木卡','作品展示台','家庭合影模板'],roles:'孩子负责创意与命名，家长负责选择可复做方案，工作人员提供安全与流程支持。',time:'15—20分钟',output:'家庭原创食谱卡 + 30天成长计划内容入口',research:'观察亲子分工、孩子偏好以及家庭愿意持续复做的条件。',theme:'creative'}
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
   const [activeDay, setActiveDay] = useState<number | null>(null);
   const [growthAction, setGrowthAction] = useState(0);
+  const [activeZone, setActiveZone] = useState<number | null>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -76,7 +83,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') { setActiveInsight(null); setActiveDay(null); } };
+    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') { setActiveInsight(null); setActiveDay(null); setActiveZone(null); } };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
@@ -236,11 +243,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="experience-section">
+      <section id="weekend-lab" className="experience-section">
         <div className="experience-image"><img src="/assets/source/kidswant-cover.png" alt="孩子王亲子家庭场景" /></div>
         <div className="experience-overlay" />
-        <div className="experience-content" data-reveal><p className="eyebrow">周末早餐研究所</p><h2>让孩子从食用者<br />成为早餐的共同创造者</h2><div className="experience-zones"><span>01 营养搭配实验区</span><span>02 鸡蛋品质侦探区</span><span>03 创意早餐共创区</span></div></div>
+        <div className="experience-content" data-reveal><p className="eyebrow">周末早餐研究所 · MONTHLY FAMILY LAB</p><h2>让孩子从食用者<br />成为早餐的共同创造者</h2><p className="experience-lead">一个可在孩子王门店复制的轻量级活动IP：每月一次，三个体验区，完成后继续进入会员成长与品质研学。</p><div className="experience-zones">{zoneDetails.map((zone,i)=><button type="button" key={zone.code} className={`zone-card zone-${zone.theme}`} onClick={()=>setActiveZone(i)}><span>{zone.code}区 / {zone.en}</span><div className="zone-mini" aria-hidden="true"><i /><i /><i /><b>{zone.code}</b></div><h3>{zone.title}</h3><p>{zone.subtitle}</p><em>进入体验区 ↗</em></button>)}</div><div className="experience-loop"><span>活动现场</span><i>→</i><span>进阶任务卡</span><i>→</i><span>30天会员计划</span><i>→</i><span>季度溯源研学</span></div></div>
       </section>
+      {activeZone !== null && <div className={`zone-overlay zone-overlay-${zoneDetails[activeZone].theme}`} role="dialog" aria-modal="true" aria-label={zoneDetails[activeZone].title} onClick={()=>setActiveZone(null)}>
+        <article className="zone-deep" onClick={event=>event.stopPropagation()}>
+          <button className="zone-close" type="button" onClick={()=>setActiveZone(null)} aria-label="关闭体验区">×</button>
+          <div className="zone-visual">
+            <div className="zone-visual-label"><span>{zoneDetails[activeZone].code}区</span><b>{zoneDetails[activeZone].en}</b></div>
+            {zoneDetails[activeZone].theme==='nutrition' && <div className="nutrition-ui"><div className="nutrition-plate"><span>谷薯</span><span>果蔬</span><span>鸡蛋</span><span>奶豆</span><b>早餐<br/>实验盘</b></div><div className="food-cards"><i>05 min</i><i>10 min</i><i>15 min</i></div><p>拖动食物卡，完成一份多样化早餐组合</p></div>}
+            {zoneDetails[activeZone].theme==='detective' && <div className="detective-ui"><div className="case-file"><span>CASE 03</span><b>一枚鸡蛋的<br/>品质档案</b><i>TOP SECRET</i></div><div className="magnifier"><span>生产日期</span></div><div className="clues"><i>包装信息</i><i>营养标签</i><i>产品来源</i><i>溯源码</i></div></div>}
+            {zoneDetails[activeZone].theme==='creative' && <div className="creative-ui"><div className="recipe-board"><span>我的早餐作品</span><div><i>鸡蛋</i><i>主食</i><i>果蔬</i></div><b>家庭共同创作</b></div><div className="creative-stamp">ORIGINAL<br/>RECIPE</div><p>组合、命名、展示，生成家庭原创食谱卡</p></div>}
+            <div className="zone-guide"><span>01 进入</span><i /><span>02 动手</span><i /><span>03 完成</span><i /><span>04 带走</span></div>
+          </div>
+          <div className="zone-info"><div className="zone-index"><span>{zoneDetails[activeZone].code}区</span><i>{zoneDetails[activeZone].en}</i></div><h3>{zoneDetails[activeZone].title}</h3><p className="zone-subtitle">{zoneDetails[activeZone].subtitle}</p><div className="zone-purpose"><span>这个区域是干什么的</span><p>{zoneDetails[activeZone].purpose}</p></div><div className="zone-steps"><span>现场参与路径</span>{zoneDetails[activeZone].steps.map((step,i)=><div key={step}><i>0{i+1}</i><b>{step}</b></div>)}</div><div className="zone-meta"><section><span>建议时长</span><b>{zoneDetails[activeZone].time}</b></section><section><span>参与者如何分工</span><p>{zoneDetails[activeZone].roles}</p></section></div><div className="zone-assets"><span>空间与物料配置</span><div>{zoneDetails[activeZone].setup.map(x=><b key={x}>{x}</b>)}</div></div><div className="zone-result"><span>活动产出</span><p>{zoneDetails[activeZone].output}</p><small>消费者研究动作：{zoneDetails[activeZone].research}</small></div><div className="zone-switch">{zoneDetails.map((zone,i)=><button type="button" className={i===activeZone?'active':''} onClick={()=>setActiveZone(i)} key={zone.code}>{zone.code}区</button>)}</div></div>
+        </article>
+      </div>}
 
       <section className="section journey-section">
         <div className="journey-title" data-reveal><p className="eyebrow">一枚鸡蛋的成长旅行</p><h2>把品质溯源变成<br />可体验、可理解、可分享的成长旅程</h2></div>
