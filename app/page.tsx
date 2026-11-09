@@ -27,6 +27,18 @@ export default function Home() {
           <h1><span>营养有蛋</span><br />成长有伴</h1>
           <p className="hero-en">BORN TO SHINE, GROW TOGETHER.</p>
           <p className="hero-note">圣迪乐 × 孩子王战略合作创意提案</p>
+          <div className="hero-concept" aria-label="核心合作概念">
+            <div className="concept-summary">
+              <span>CORE COLLABORATION CONCEPT</span>
+              <b>一个核心 IP · 五大合作模块 · 四阶段运营周期</b>
+            </div>
+            <div className="concept-logic">
+              <div><span>7 DAYS</span><b>建立体验</b></div><i />
+              <div><span>30 DAYS</span><b>培养习惯</b></div><i />
+              <div><span>SEASON</span><b>深化信任</b></div><i />
+              <div><span>365 DAYS</span><b>创造增量</b></div>
+            </div>
+          </div>
         </div>
         <a href="#opportunity" className="scroll-cue" aria-label="向下浏览"><span>SCROLL TO EXPLORE</span><ArrowDown size={18} /></a>
       </section>

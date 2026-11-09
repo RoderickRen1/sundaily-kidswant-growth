@@ -1,0 +1,38 @@
+.hero-concept {
+  width: min(1120px, 82vw);
+  margin-top: 28px;
+  padding: 17px 20px 15px;
+  border-top: 1px solid rgba(255,255,255,.48);
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  background: linear-gradient(90deg,rgba(32,11,3,.5),rgba(32,11,3,.18));
+  backdrop-filter: blur(7px);
+  display: grid;
+  grid-template-columns: minmax(250px,.85fr) 1.55fr;
+  gap: 34px;
+  align-items: center;
+}
+.concept-summary { display:flex; flex-direction:column; gap:7px; }
+.concept-summary span { font-size:9px; letter-spacing:.18em; color:#ffc993; }
+.concept-summary b { font-size:15px; line-height:1.45; color:#fff5ea; }
+.concept-logic { display:grid; grid-template-columns:1fr 20px 1fr 20px 1fr 20px 1fr; align-items:center; }
+.concept-logic>div { display:flex; flex-direction:column; gap:5px; }
+.concept-logic span { font-size:9px; letter-spacing:.15em; color:#ff9a63; }
+.concept-logic b { font-size:14px; white-space:nowrap; }
+.concept-logic i { width:14px; height:1px; background:rgba(255,255,255,.55); position:relative; }
+.concept-logic i:after { content:""; position:absolute; right:0; top:-2px; width:5px; height:5px; border-top:1px solid rgba(255,255,255,.7); border-right:1px solid rgba(255,255,255,.7); transform:rotate(45deg); }
+@media (max-height: 820px) and (min-width: 801px) {
+  .hero h1 { font-size:clamp(62px,8.5vw,126px); }
+  .hero-en { margin-top:22px; }
+  .hero-concept { margin-top:18px; padding-top:12px; padding-bottom:12px; }
+}
+@media (max-width: 800px) {
+  .hero { align-items:flex-start; padding-top:122px; min-height:100svh; }
+  .hero-content { padding-top:0; }
+  .hero-concept { width:calc(100vw - 48px); margin-top:22px; padding:14px 0; grid-template-columns:1fr; gap:14px; background:transparent; backdrop-filter:none; }
+  .concept-summary b { font-size:13px; }
+  .concept-logic { grid-template-columns:1fr 12px 1fr; row-gap:12px; }
+  .concept-logic i:nth-of-type(2) { display:none; }
+  .concept-logic div:nth-of-type(3) { grid-column:1; }
+  .concept-logic div:nth-of-type(4) { grid-column:3; }
+  .concept-logic b { font-size:12px; }
+}
