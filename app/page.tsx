@@ -57,9 +57,16 @@ const dayDetails = [
   {day:'DAY 7',title:'早餐实验成果日',tag:'REVIEW',goal:'让用户看见变化、表达反馈，并获得进入下一阶段的合理理由。',action:'查看7天成长报告，选择最有价值的任务，完成简短反馈并领取下一阶段权益。',touch:'会员报告 / 权益页 / 复购触点',deliver:['7天成长报告','家庭早餐偏好卡','反馈问卷','30天计划邀请'],metric:'7天完成率 · 满意度 · 30天计划转化率 · 复购意愿',next:'进入30天家庭早餐成长计划；未完成家庭获得轻量回顾路线。',visual:'report'}
 ];
 
+const growthActions = [
+  {name:'购买行为',en:'BUY',points:'+30',desc:'购买指定圣迪乐产品',result:'记录真实消费，而非要求每日购买',icon:'01'},
+  {name:'参与行为',en:'JOIN',points:'+20',desc:'参与早餐任务或食谱体验',result:'用内容与活动建立持续使用理由',icon:'02'},
+  {name:'反馈行为',en:'SHARE',points:'+10',desc:'自愿提供产品与早餐反馈',result:'沉淀可用洞察，不强制公开分享',icon:'03'}
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
   const [activeDay, setActiveDay] = useState<number | null>(null);
+  const [growthAction, setGrowthAction] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -201,9 +208,32 @@ export default function Home() {
         </article>
       </div>}
 
-      <section className="section growth-section">
-        <div className="growth-copy" data-reveal><p className="eyebrow">30 DAYS GROWTH PLAN</p><h2>把首次体验<br />转化为持续连接</h2><p>家庭早餐偏好卡、5/10/15分钟内容、会员积分与参与权益，共同构成有节奏的会员成长旅程。</p></div>
-        <div className="phone-demo" data-reveal><div className="phone-top"><span>9:41</span><b>家庭早餐成长</b><small>设计示意</small></div><div className="phone-egg">本周进度<b>4 / 7</b></div><div className="phone-list"><p><span>05 min</span>快手早餐</p><p><span>10 min</span>家庭共创</p><p><span>15 min</span>周末悠闲</p></div><button>记录今日早餐</button></div>
+      <section id="growth-plan" className="section growth-section">
+        <div className="growth-heading" data-reveal><div><p className="eyebrow">30 DAYS GROWTH PLAN</p><h2>从一次体验，<br />到一段<em>持续消费关系</em></h2></div><div className="growth-question"><span>核心问题</span><p>7天结束后，家庭为什么还要继续关注圣迪乐？</p><b>答案不是再发一张优惠券，而是建立持续有用的会员机制。</b></div></div>
+        <div className="growth-chain" data-reveal>
+          <div className="chain-start"><span>DAY 7</span><b>完成早餐实验</b><p>获得家庭实验报告</p></div><i>→</i>
+          <div className="chain-core"><span>DAY 8—30</span><b>三类行为获得成长值</b><p>购买 · 参与 · 反馈</p></div><i>→</i>
+          <div><span>MEMBERSHIP</span><b>逐级获得持续权益</b><p>体验 → 成长 → 共创</p></div><i>→</i>
+          <div className="chain-end"><span>BUSINESS</span><b>留存与复购</b><p>有理由再次回来</p></div>
+        </div>
+        <div className="growth-workbench">
+          <div className="growth-left" data-reveal>
+            <div className="growth-block-title"><span>01 / HOW IT WORKS</span><h3>成长值来自三种真实行为</h3><p>用户不需要每天打卡，也不需要上传大量家庭信息。</p></div>
+            <div className="growth-actions">{growthActions.map((action,i)=><button type="button" className={i===growthAction?'active':''} onClick={()=>setGrowthAction(i)} key={action.name}><span>{action.icon}</span><div><b>{action.name}</b><small>{action.desc}</small></div><em>{action.points}</em><i>↗</i></button>)}</div>
+            <div className="growth-guidance"><span>当前动作的设计目的</span><p>{growthActions[growthAction].result}</p></div>
+            <div className="member-levels"><span>02 / THREE LEVELS</span><div><article><small>LEVEL 01</small><b>体验会员</b><p>首次购买或完成7天活动</p><em>早餐内容 · 体验权益</em></article><article><small>LEVEL 02</small><b>成长会员</b><p>持续参与或再次购买</p><em>专属活动 · 复购权益</em></article><article><small>LEVEL 03</small><b>共创会员</b><p>多次参与并自愿反馈</p><em>新品体验 · 共创资格</em></article></div><p className="level-note">* 为合作项目内的活动分层，不替代孩子王现有会员等级。</p></div>
+          </div>
+          <div className="growth-phone-stage" data-reveal>
+            <div className="growth-phone">
+              <div className="gp-top"><span>9:41</span><b>家庭早餐成长</b><small>•••</small></div>
+              <div className="gp-member"><div><span>成长会员</span><b>680 <small>成长值</small></b></div><i><b /></i><p>距共创会员还差 320</p></div>
+              <div className="gp-card"><span>家庭早餐偏好卡</span><b>为你推荐更适合的早餐内容</b><div><i>05 min</i><i>3人家庭</i><i>孩子可参与</i></div><button type="button">调整偏好 →</button></div>
+              <div className="gp-event"><span className="gp-icon">{growthActions[growthAction].icon}</span><div><small>{growthActions[growthAction].en} ACTION</small><b>{growthActions[growthAction].desc}</b></div><em>{growthActions[growthAction].points}</em></div>
+              <div className="gp-benefits"><span>可兑换权益</span><div><b>亲子活动体验</b><b>商品权益</b><b>品牌周边</b></div></div>
+            </div>
+            <div className="privacy-note"><span>PRIVACY BY DESIGN</span><p>只记录早餐准备时间、家庭人数、饮食偏好和协助需求；不采集儿童姓名、健康状况等敏感信息。</p></div>
+          </div>
+        </div>
       </section>
 
       <section className="experience-section">
