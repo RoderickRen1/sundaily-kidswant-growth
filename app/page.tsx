@@ -1,9 +1,53 @@
 'use client';
 
 import { ArrowDown, Baby, Building2, CalendarHeart, Gift, HeartHandshake, ShoppingBasket, Sparkles } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+const insightDetails = [
+  {
+    kicker: '01 / TIME PRESSURE', title: '早餐不是知识问题，首先是执行问题', short: '家长往往知道早餐重要，但工作日真正稀缺的是时间、计划与低摩擦方案。',
+    evidence: ['质性研究显示，家长决定给孩子吃什么时，会同时权衡儿童偏好、健康性与时间压力。', '中国居民膳食指南建议每天吃早餐，并提出早餐应覆盖谷薯、蔬果、动物性食物、奶豆坚果等类别。'],
+    implication: '7天实验室不应只讲“营养知识”，而要交付5/10/15分钟可执行早餐组合、前夜准备提示和家庭任务卡。',
+    test: '试点验证：任务完成率、平均准备时长、工作日连续参与天数。',
+    sources: [
+      ['学龄前儿童家庭喂养责任的质性研究','https://pmc.ncbi.nlm.nih.gov/articles/PMC6062462/'],
+      ['中国居民膳食指南（2022）相关原则','https://www.ecphf.cn/Nutrition-Food/2025-07/7112p7.htm']
+    ]
+  },
+  {
+    kicker: '02 / FAMILY SYSTEM', title: '购买者、准备者与食用者，不一定是同一个人', short: '家庭食品选择不是单一“妈妈决策”，而是成员之间不断协商的系统。',
+    evidence: ['家庭成员研究显示，儿童对家庭食品决策具有重要影响，且影响会随产品类别变化。', '亲子共同选餐实验进一步显示，儿童在场会改变父母的食物选择，说明影响关系是双向的。'],
+    implication: '同一产品需要同时回应三种价值：采购者看品质与价格，准备者看便利，儿童看口味、参与感与选择权。',
+    test: '试点验证：分别访谈购买者、准备者、食用儿童；记录三者对“好早餐”的定义差异。',
+    sources: [
+      ['家庭成员对食品决策的影响研究','https://pubmed.ncbi.nlm.nih.gov/10346661/'],
+      ['亲子共同选餐的双向影响研究','https://pubmed.ncbi.nlm.nih.gov/36597486/']
+    ]
+  },
+  {
+    kicker: '03 / CHILD PARTICIPATION', title: '让孩子参与，可能比“教育孩子”更有效', short: '参与准备会改变孩子当下的进食行为，也可能建立更强的食物选择自我效能。',
+    evidence: ['实验研究发现，5—7岁儿童会吃更多自己参与制作的食物；这一效应并不只发生在健康食品上。', '对加拿大五年级学生的大样本研究显示，参与家庭备餐与更高的果蔬偏好及健康选择自我效能相关。'],
+    implication: '亲子活动应把孩子从“听众”变成“共同创造者”，但任务内容必须限定在健康食材与合理份量中。',
+    test: '试点验证：孩子参与率、愿意尝试比例、家庭共同制作次数及活动后复做率。',
+    sources: [
+      ['儿童会更多食用自己准备的食物','https://pmc.ncbi.nlm.nih.gov/articles/PMC6768385/'],
+      ['家庭备餐参与与食物偏好、自我效能','https://pmc.ncbi.nlm.nih.gov/articles/PMC10271544/']
+    ]
+  },
+  {
+    kicker: '04 / TRUST & REPEAT', title: '一次体验制造兴趣，重复体验才可能形成接受', short: '家庭复购不只取决于首次满意，还取决于产品能否稳定进入生活节奏。',
+    evidence: ['儿童食物接受研究指出，熟悉度和重复接触会影响儿童尝试与接受新食物。', '亲子烹饪项目研究显示，重复接触与感官学习结合，可降低挑食并提高尝试意愿。'],
+    implication: '7天用于降低首次参与门槛，30天用于形成家庭节奏；会员权益应奖励持续记录、复做和反馈，而非单次打卡。',
+    test: '试点验证：7天完成率、30天留存率、第二次购买间隔及早餐方案复做率。',
+    sources: [
+      ['儿童食物准备与重复接触机制','https://pmc.ncbi.nlm.nih.gov/articles/PMC6768385/'],
+      ['亲子烹饪项目的准实验研究','https://pmc.ncbi.nlm.nih.gov/articles/PMC7551038/']
+    ]
+  }
+];
 
 export default function Home() {
+  const [activeInsight, setActiveInsight] = useState<number | null>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -11,6 +55,11 @@ export default function Home() {
     );
     document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => event.key === 'Escape' && setActiveInsight(null);
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
   }, []);
 
   return (
@@ -81,13 +130,24 @@ export default function Home() {
 
       <section className="section insight-section">
         <div className="section-index">03 / INSIGHT</div>
-        <div className="insight-head" data-reveal><p className="eyebrow">消费者洞察</p><h2>家庭的一顿早餐，<br />从来不只由<em>一个人</em>决定</h2></div>
+        <div className="insight-head" data-reveal><p className="eyebrow">消费者洞察 · EVIDENCE-LED</p><h2>家庭的一顿早餐，<br />从来不只由<em>一个人</em>决定</h2><p className="insight-lead">基于家庭食品决策、亲子喂养与儿童参与研究建立的洞察框架。点击四个关键变量，进入研究依据与项目启示。</p></div>
         <div className="decision-orbit" data-reveal>
-          <div className="decision-center"><span>家庭早餐</span><small>购买 · 使用 · 复购</small></div>
-          {['家长：营养与品质','儿童：口味与参与','祖辈：照护与采购','时间：便利与稳定'].map((x,i)=><div className={`decision-node node-${i+1}`} key={x}>{x}</div>)}
+          <div className="decision-center"><span>家庭早餐</span><small>购买 · 使用 · 复购</small><b>4个关键变量</b></div>
+          {['时间压力：能否执行','家庭协作：谁在决策','儿童参与：是否愿意','重复体验：能否持续'].map((x,i)=><button type="button" className={`decision-node node-${i+1}`} key={x} onClick={()=>setActiveInsight(i)}><span>0{i+1}</span>{x}<i>↗</i></button>)}
         </div>
-        <p className="insight-note" data-reveal>营养认知、品质信任、使用便利性与家庭偏好，共同影响购买与复购。这是待在合作试点中持续验证的研究框架。</p>
+        <div className="insight-proof" data-reveal><span>研究不是结论的终点</span><p>外部研究用于构建假设；成都试点仍需通过家庭访谈、任务完成率与复购数据进行本地验证。</p><small>6篇研究论文 + 1项中国膳食指南</small></div>
       </section>
+      {activeInsight !== null && <div className="insight-overlay" role="dialog" aria-modal="true" aria-label={insightDetails[activeInsight].title} onClick={()=>setActiveInsight(null)}>
+        <article className="insight-deep" onClick={(event)=>event.stopPropagation()}>
+          <button className="insight-close" type="button" onClick={()=>setActiveInsight(null)} aria-label="关闭深度分析">×</button>
+          <div className="deep-index">{insightDetails[activeInsight].kicker}</div>
+          <h3>{insightDetails[activeInsight].title}</h3><p className="deep-short">{insightDetails[activeInsight].short}</p>
+          <div className="deep-grid"><section><span>研究发现</span>{insightDetails[activeInsight].evidence.map(x=><p key={x}>{x}</p>)}</section><section><span>对合作设计的启示</span><p>{insightDetails[activeInsight].implication}</p></section></div>
+          <div className="deep-test"><span>建议验证指标</span><p>{insightDetails[activeInsight].test}</p></div>
+          <div className="deep-sources"><span>REFERENCES</span>{insightDetails[activeInsight].sources.map(source=><a key={source[1]} href={source[1]} target="_blank" rel="noreferrer">{source[0]} <i>↗</i></a>)}</div>
+          <div className="deep-nav">{insightDetails.map((_,i)=><button key={i} type="button" className={i===activeInsight?'active':''} onClick={()=>setActiveInsight(i)}>0{i+1}</button>)}</div>
+        </article>
+      </div>}
 
       <section id="blueprint" className="section blueprint-section">
         <div className="blueprint-glow" />
