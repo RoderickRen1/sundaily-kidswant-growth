@@ -46,8 +46,20 @@ const insightDetails = [
   }
 ];
 
+const dayDetails = [
+  {day:'DAY 0',title:'加入早餐实验室',tag:'ENTRY',goal:'完成一次低门槛入组，让家庭知道未来7天不是促销打卡，而是一场真实早餐体验。',action:'在孩子王门店或线上购买首盒产品，扫码选择家庭早餐偏好，领取数字任务卡。',touch:'门店端架 / 商品页 / 会员小程序',deliver:['实验室欢迎页','家庭偏好3问','7天任务总览','首盒产品使用提示'],metric:'入组率 · 偏好卡完成率 · 首日打开率',next:'生成家庭专属任务路线，进入Day 1基线记录。',visual:'join'},
+  {day:'DAY 1',title:'认识我的早餐',tag:'OBSERVE',goal:'先看见真实习惯，再谈改变；建立家庭早餐的基线画像。',action:'拍下或选择家庭平时的早餐，记录准备时长、参与成员与最大的困难。',touch:'会员小程序 / 社群提醒',deliver:['早餐快照上传','5/10/15分钟选择','家庭角色选择','一键生成早餐画像'],metric:'记录完成率 · 真实困难分布 · 当前准备时长',next:'根据时间条件推荐Day 2快手早餐方案。',visual:'record'},
+  {day:'DAY 2',title:'5分钟早餐挑战',tag:'EASY WIN',goal:'用一次可完成的小胜利证明“营养早餐不一定复杂”。',action:'从3套快手组合中任选一套，在5分钟内完成鸡蛋早餐并记录用时。',touch:'食谱内容 / 任务计时器',deliver:['三选一食谱','步骤计时器','替换食材建议','完成动效与徽章'],metric:'挑战完成率 · 实际用时 · 食谱收藏率',next:'把选择权交给孩子，进入Day 3共同设计。',visual:'timer'},
+  {day:'DAY 3',title:'小小早餐设计师',tag:'CO-CREATE',goal:'让孩子从被动食用者变成共同创造者，增加参与感与尝试意愿。',action:'孩子从主食、鸡蛋做法、果蔬和摆盘中各选一项，生成自己的早餐设计。',touch:'亲子互动卡 / 小程序拖拽界面',deliver:['食材积木卡','营养组合提示','儿童作品命名','早餐设计海报'],metric:'儿童参与率 · 组合完成率 · 作品分享率',next:'邀请家庭成员共同食用Day 3设计，进入Day 4。',visual:'build'},
+  {day:'DAY 4',title:'全家一起吃',tag:'TOGETHER',goal:'把产品体验转化为家庭共同记忆，而不是单人完成的任务。',action:'选择一顿全家都能参与的早餐，设置共同开餐时间并完成一张家庭合照。',touch:'家庭任务提醒 / 共餐内容',deliver:['共餐时间预约','角色分工卡','家庭合照模板','一句话感受'],metric:'共同参与人数 · 共餐完成率 · 家庭反馈',next:'从“吃得开心”进入“吃得明白”，衔接Day 5品质探究。',visual:'family'},
+  {day:'DAY 5',title:'鸡蛋品质侦探',tag:'TRUST',goal:'把抽象的品质承诺变成消费者可以识别、理解和验证的线索。',action:'观察包装信息、生产日期、营养标签与溯源码，完成4项品质线索任务。',touch:'包装 / 溯源内容 / 品牌知识卡',deliver:['包装找线索','日期与标签解释','溯源入口','品质问答'],metric:'溯源点击率 · 知识完成率 · 品质信任变化',next:'自然引导至数字研学或生产基地体验，并进入Day 6表达。',visual:'trace'},
+  {day:'DAY 6',title:'我的创意鸡蛋料理',tag:'SHARE',goal:'把家庭体验沉淀为可传播的真实内容，同时避免强迫公开分享。',action:'复做最喜欢的早餐或创造新做法，生成一张家庭食谱卡；可选择仅自己保存或公开分享。',touch:'UGC模板 / 社群 / 会员内容',deliver:['食谱卡模板','照片轻编辑','隐私选择','家庭作品集'],metric:'食谱生成率 · 自愿分享率 · 二次制作率',next:'汇总7天记录，形成Day 7家庭实验报告。',visual:'share'},
+  {day:'DAY 7',title:'早餐实验成果日',tag:'REVIEW',goal:'让用户看见变化、表达反馈，并获得进入下一阶段的合理理由。',action:'查看7天成长报告，选择最有价值的任务，完成简短反馈并领取下一阶段权益。',touch:'会员报告 / 权益页 / 复购触点',deliver:['7天成长报告','家庭早餐偏好卡','反馈问卷','30天计划邀请'],metric:'7天完成率 · 满意度 · 30天计划转化率 · 复购意愿',next:'进入30天家庭早餐成长计划；未完成家庭获得轻量回顾路线。',visual:'report'}
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
+  const [activeDay, setActiveDay] = useState<number | null>(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -57,7 +69,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    const close = (event: KeyboardEvent) => event.key === 'Escape' && setActiveInsight(null);
+    const close = (event: KeyboardEvent) => { if (event.key === 'Escape') { setActiveInsight(null); setActiveDay(null); } };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
@@ -158,12 +170,36 @@ export default function Home() {
         ].map(x=><div key={x[0]}><span>{x[0]}</span><b>{x[1]}</b><small>{x[2]}</small></div>)}</div>
       </section>
 
-      <section className="section lab-section">
-        <div className="lab-head" data-reveal><div><p className="eyebrow">7 DAYS BREAKFAST LAB</p><h2>让一盒营养蛋<br />变成一次家庭实验</h2></div><p>不要求每天重复购买，而是用七个轻任务，让产品进入真实的家庭早餐生活。</p></div>
-        <div className="days-track" data-reveal>{[
-          ['0','加入实验室'],['1','记录早餐习惯'],['2','5分钟早餐挑战'],['3','孩子设计早餐'],['4','家庭共餐'],['5','品质小侦探'],['6','分享创意早餐'],['7','反馈与权益']
-        ].map((d,i)=><div className={i===7?'active':''} key={d[0]}><span>DAY {d[0]}</span><b>{d[1]}</b></div>)}</div>
+      <section id="breakfast-lab" className="section lab-section">
+        <div className="lab-head" data-reveal><div><p className="eyebrow">7 DAYS BREAKFAST LAB</p><h2>让一盒营养蛋<br />变成一次家庭实验</h2></div><div className="lab-intro"><p>不要求每天重复购买，而是用七个轻任务，让产品进入真实的家庭早餐生活。</p><span>点击每一天，查看完整任务设计与画面演示 ↘</span></div></div>
+        <div className="days-track" data-reveal>{dayDetails.map((d,i)=><button type="button" onClick={()=>setActiveDay(i)} className={i===7?'active':''} key={d.day}><span>{d.day}</span><b>{d.title}</b><small>{d.tag}</small><i>↗</i></button>)}</div>
+        <div className="lab-principles" data-reveal><div><span>01</span><b>体验，不是催购</b><p>7天内围绕同一盒产品展开，不设置每日购买任务。</p></div><div><span>02</span><b>每天都有下一步</b><p>从使用体验逐步连接亲子共创、品质研学与会员成长。</p></div></div>
       </section>
+      {activeDay !== null && <div className="day-overlay" role="dialog" aria-modal="true" aria-label={`${dayDetails[activeDay].day} ${dayDetails[activeDay].title}`} onClick={()=>setActiveDay(null)}>
+        <article className="day-deep" onClick={event=>event.stopPropagation()}>
+          <button className="day-close" type="button" onClick={()=>setActiveDay(null)} aria-label="关闭当天任务">×</button>
+          <div className="day-demo-wrap">
+            <div className={`demo-device demo-${dayDetails[activeDay].visual}`}>
+              <div className="demo-status"><span>9:41</span><b>早餐实验室</b><i>•••</i></div>
+              <div className="demo-progress"><span>7 DAYS LAB</span><i><b style={{width:`${(activeDay+1)/8*100}%`}} /></i><small>{activeDay + 1} / 8</small></div>
+              <div className="demo-scene"><div className="demo-egg"><span>{activeDay === 2 ? '05:00' : `0${activeDay}`}</span><small>{dayDetails[activeDay].tag}</small></div><em>✦</em><em>✦</em></div>
+              <h4>{dayDetails[activeDay].title}</h4><p>{dayDetails[activeDay].action}</p>
+              <div className="demo-tasks">{dayDetails[activeDay].deliver.slice(0,3).map((x,i)=><div key={x}><span>{i===0?'✓':'○'}</span>{x}</div>)}</div>
+              <button type="button">开始今日任务 <span>→</span></button>
+            </div>
+            <p className="demo-caption">用户端画面演示 · 具体交互可在联合设计阶段深化</p>
+          </div>
+          <div className="day-content">
+            <div className="day-kicker"><span>{dayDetails[activeDay].day}</span><i>{dayDetails[activeDay].tag}</i></div>
+            <h3>{dayDetails[activeDay].title}</h3><p className="day-goal">{dayDetails[activeDay].goal}</p>
+            <div className="day-action"><span>用户今天做什么</span><p>{dayDetails[activeDay].action}</p></div>
+            <div className="day-specs"><section><span>品牌触点</span><p>{dayDetails[activeDay].touch}</p></section><section><span>完成标准 / 数据</span><p>{dayDetails[activeDay].metric}</p></section></div>
+            <div className="day-assets"><span>需要设计的内容与物料</span><div>{dayDetails[activeDay].deliver.map(x=><b key={x}>{x}</b>)}</div></div>
+            <div className="day-next"><span>NEXT STEP</span><p>{dayDetails[activeDay].next}</p></div>
+            <div className="day-nav"><button type="button" disabled={activeDay===0} onClick={()=>setActiveDay(Math.max(0,activeDay-1))}>← 前一天</button><div>{dayDetails.map((_,i)=><button type="button" aria-label={`打开Day ${i}`} className={i===activeDay?'active':''} onClick={()=>setActiveDay(i)} key={i}>{i}</button>)}</div><button type="button" disabled={activeDay===7} onClick={()=>setActiveDay(Math.min(7,activeDay+1))}>后一天 →</button></div>
+          </div>
+        </article>
+      </div>}
 
       <section className="section growth-section">
         <div className="growth-copy" data-reveal><p className="eyebrow">30 DAYS GROWTH PLAN</p><h2>把首次体验<br />转化为持续连接</h2><p>家庭早餐偏好卡、5/10/15分钟内容、会员积分与参与权益，共同构成有节奏的会员成长旅程。</p></div>
