@@ -342,24 +342,6 @@ export default function Home() {
         <div className="formula" data-reveal>门店销售额 = 门店数 × 日均盒数 × 50元 × 300天　+　企业订单额</div>
       </section>
 
-      <section className="section value-section">
-        <div data-reveal><p className="eyebrow">价值与ROI</p><h2>从销售规模走向<br />真实增量</h2></div>
-        <div className="value-layers" data-reveal><div><span>01</span><b>直接商业收益</b><p>销售额 · 贡献利润 · 单店动销</p></div><div><span>02</span><b>用户经营价值</b><p>会员复购 · 活动参与 · 使用反馈</p></div><div><span>03</span><b>品牌与长期资产</b><p>品质信任 · 企业客户续购 · 内容资产</p></div></div>
-        <div className="roi-formula" data-reveal><span>项目增量 ROI</span><b>=（项目增量贡献利润 − 项目专项投入）÷ 项目专项投入</b></div>
-      </section>
-
-      <section className="section execution-section">
-        <div data-reveal><p className="eyebrow">联合项目作战图</p><h2>一个联合项目组<br />五条工作线，三阶段里程碑</h2></div>
-        <div className="workstreams" data-reveal>{['商品与渠道','会员与数字化','品牌与亲子活动','品质溯源与研学','礼赠与企业客户'].map((w,i)=><div key={w}><span>0{i+1}</span><b>{w}</b><i className={`bar bar-${i+1}`} /></div>)}</div>
-        <div className="cadence" data-reveal><span>每周执行例会</span><span>每两周经营复盘</span><span>每月管理层里程碑评审</span></div>
-      </section>
-
-      <section className="section loop-section">
-        <div data-reveal><p className="eyebrow">增长评估与洞察闭环</p><h2>数据回答“发生了什么”<br />研究回答“为什么”</h2></div>
-        <div className="funnel" data-reveal>{[['Reach','触达'],['Engage','参与'],['Convert','首购'],['Use','使用'],['Retain','复购'],['Advocate','推荐']].map(x=><div key={x[0]}><b>{x[0]}</b><span>{x[1]}</span></div>)}</div>
-        <div className="loop-grid" data-reveal><div><span>BEHAVIOR DATA</span><h3>行为数据</h3><p>销售、转化、参与、复购</p></div><div className="loop-arrow">发现问题 → 解释原因 → 提出假设 → 小规模测试 → 评估优化</div><div><span>CONSUMER RESEARCH</span><h3>消费者研究</h3><p>深度访谈、早餐日志、活动观察、反馈分析</p></div></div>
-      </section>
-
       <section className="final-section">
         <img src="/assets/source/sdl-cover.png" alt="圣迪乐天生阳光品牌视觉" />
         <div className="final-shade" />
