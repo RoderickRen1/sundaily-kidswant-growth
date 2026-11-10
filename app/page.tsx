@@ -75,12 +75,25 @@ const journeyLevels = [
   {level:'LEVEL 03',title:'真实生产基地深度研学',en:'REAL FARM JOURNEY',purpose:'在满足基地安全、卫生防疫与接待条件的前提下，让限定家庭看到养殖、检测、分级与自动化包装。',experience:['认识养殖环境与生物安全边界','观察品质检测与分级逻辑','参观智能高效自动化处理与包装流程'],value:'把抽象的“全产业链品质”变成可见证据，强化理解、信任与长期品牌记忆。',output:'基地研学证书 + 家庭溯源影像内容',theme:'base'}
 ];
 
+const b2cGiftIdeas = [
+  {name:'给爸妈的早餐',to:'TO MOM & DAD',message:'不能每天陪你吃早餐，就把一份日常关心送到家。',scene:'异地家庭 · 父母关怀'},
+  {name:'谢谢你陪我长大',to:'THANK YOU',message:'谢谢你把每一个普通清晨，都变成我成长里的温暖记忆。',scene:'祖辈照护 · 感谢礼赠'},
+  {name:'新家庭第一份早餐',to:'NEW FAMILY',message:'愿新生活的每一个清晨，都从一份安心与好好吃饭开始。',scene:'新婚 · 新家 · 新生家庭'}
+];
+const b2bGiftIdeas = [
+  {name:'员工家庭关怀卡',to:'EMPLOYEE CARE',message:'把企业福利，从一份实物礼盒升级为一个家庭可自由选择的营养权益。',scene:'HR福利采购'},
+  {name:'节庆家庭共聚卡',to:'FAMILY FESTIVAL',message:'产品兑换、亲子活动与家庭内容组合，承接企业节庆关怀。',scene:'工会与福利组织'},
+  {name:'商务家庭礼遇卡',to:'FAMILY COURTESY',message:'以品质产品与家庭服务，表达更有温度的客户关系维护。',scene:'商务礼赠采购'}
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
   const [activeDay, setActiveDay] = useState<number | null>(null);
   const [growthAction, setGrowthAction] = useState(0);
   const [activeZone, setActiveZone] = useState<number | null>(null);
   const [journeyLevel, setJourneyLevel] = useState(0);
+  const [b2cGift, setB2cGift] = useState(0);
+  const [b2bGift, setB2bGift] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -288,10 +301,24 @@ export default function Home() {
         <div className="journey-linkage" data-reveal><span>7天品质侦探任务</span><i>→</i><span>30天成长值累积</span><i>→</i><span>门店微研学</span><i>→</i><span>航天主题探索</span><i>→</i><span>基地研学资格</span></div>
       </section>
 
-      <section className="section gifting-section">
-        <div className="gifting-title" data-reveal><p className="eyebrow">礼赠与企业客户</p><h2>把营养，送给你爱的人</h2></div>
-        <div className="gift-split" data-reveal><div><span>B2C</span><h3>家庭情感礼赠</h3><p>春节与中秋 · 异地家庭 · 祖辈照护感谢 · 新家庭营养礼物</p></div><div><span>B2B</span><h3>企业家庭关怀</h3><p>员工福利 · 工会节庆采购 · 企业礼赠 · 员工家庭关怀计划</p></div></div>
-        <p className="concept-note" data-reveal>概念组合：圣迪乐营养蛋或礼品卡 + 孩子王家庭服务或亲子活动权益。为合作构想，非现有在售联合产品。</p>
+      <section id="gifting" className="section gifting-section">
+        <div className="gifting-title" data-reveal><p className="eyebrow">礼赠与企业客户 · TWO GIFTING ROUTES</p><h2>把营养，<br />送给你爱的人</h2><p>同一张“蛋卡”，承接两种不同的购买逻辑：B2C表达家庭情感，B2B交付企业家庭关怀。</p></div>
+        <div className="gifting-routes">
+          <article className="gift-route b2c-route" data-reveal>
+            <div className="gift-route-head"><div><span>ROUTE A / B2C</span><h3>家庭情感礼赠</h3><p>让日常营养成为关系维护与情感表达。</p></div><b>个人购买<br/>个人赠送</b></div>
+            <div className="egg-card-stage"><div className="egg-card b2c-card"><div className="card-glow"/><div className="card-brand"><span className="egg-mark"><span /></span><b>圣迪乐 <i>×</i> 孩子王</b></div><div className="card-copy"><small>{b2cGiftIdeas[b2cGift].to}</small><h4>{b2cGiftIdeas[b2cGift].name}</h4><p>{b2cGiftIdeas[b2cGift].message}</p></div><div className="card-egg"><span>营养<br/>有蛋</span></div><div className="card-foot"><span>NO. 2026 1109</span><b>家庭营养礼遇卡</b></div></div><div className="card-shadow-card"/></div>
+            <div className="gift-choices"><span>选择礼赠场景</span>{b2cGiftIdeas.map((idea,i)=><button type="button" className={i===b2cGift?'active':''} onClick={()=>setB2cGift(i)} key={idea.name}><i>0{i+1}</i><b>{idea.name}</b><small>{idea.scene}</small></button>)}</div>
+            <div className="gift-flow"><span>购买蛋卡</span><i>→</i><span>写下祝福</span><i>→</i><span>对方领取</span><i>→</i><span>兑换产品/服务</span></div>
+          </article>
+          <article className="gift-route b2b-route" data-reveal>
+            <div className="gift-route-head"><div><span>ROUTE B / B2B</span><h3>企业家庭关怀</h3><p>把实物福利升级为营养商品与亲子服务的组合权益。</p></div><b>企业采购<br/>家庭使用</b></div>
+            <div className="egg-card-stage"><div className="egg-card b2b-card"><div className="corporate-grid"/><div className="card-brand"><span className="egg-mark"><span /></span><b>圣迪乐 <i>×</i> 孩子王</b></div><div className="card-copy"><small>{b2bGiftIdeas[b2bGift].to}</small><h4>{b2bGiftIdeas[b2bGift].name}</h4><p>{b2bGiftIdeas[b2bGift].message}</p></div><div className="card-egg"><span>FAMILY<br/>CARE</span></div><div className="card-foot"><span>ENTERPRISE EDITION</span><b>企业定制蛋卡</b></div><div className="company-slot">企业标识定制区</div></div><div className="card-shadow-card"/></div>
+            <div className="gift-choices"><span>选择企业解决方案</span>{b2bGiftIdeas.map((idea,i)=><button type="button" className={i===b2bGift?'active':''} onClick={()=>setB2bGift(i)} key={idea.name}><i>0{i+1}</i><b>{idea.name}</b><small>{idea.scene}</small></button>)}</div>
+            <div className="gift-flow"><span>企业采购</span><i>→</i><span>员工领卡</span><i>→</i><span>自选权益</span><i>→</i><span>家庭参与</span></div>
+          </article>
+        </div>
+        <div className="gift-system" data-reveal><div><span>蛋卡里有什么</span><b>圣迪乐产品兑换权益</b><b>孩子王家庭服务权益</b><b>指定亲子活动名额</b></div><div><span>为什么不是普通礼盒</span><p>收礼者可以根据家庭需要自主选择产品或服务；送礼者获得更轻、更灵活、更有情感表达的礼赠方式。</p></div><div><span>设计边界</span><p>不暗示特定营养蛋对孕产妇、婴幼儿具有特殊功效；具体面额、产品组合与服务权益以双方确认的在售方案为准。</p></div></div>
+        <p className="concept-note" data-reveal>以上蛋卡为联合合作概念设计，非当前已发行或在售卡券；企业标识、兑换规则、有效期及履约方式需在合作确认后完成正式设计。</p>
       </section>
 
       <section className="section engine-section">
