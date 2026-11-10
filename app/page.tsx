@@ -115,7 +115,7 @@ export default function Home() {
         <a href="#opportunity" className="nav-cta">合作蓝图</a>
       </nav>
       <section id="top" className="hero">
-        <img className="hero-image" src="/assets/source/sdl-family.png" alt="圣迪乐家庭早餐品牌场景" />
+        <img className="hero-image" src="assets/source/sdl-family.png" alt="圣迪乐家庭早餐品牌场景" />
         <div className="hero-shade" /><div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
         <div className="hero-content">
           <div className="hero-kicker"><Sparkles size={15} /> 家庭营养成长计划</div>
@@ -145,7 +145,7 @@ export default function Home() {
         </div>
         <div className="opportunity-map" data-reveal>
           <figure className="opportunity-photo">
-            <img src="/assets/source/opportunity-family-breakfast-v2.png" alt="妈妈和孩子一起准备营养早餐的温暖家庭场景" />
+            <img src="assets/source/opportunity-family-breakfast-v2.png" alt="妈妈和孩子一起准备营养早餐的温暖家庭场景" />
             <figcaption><span>共同用户</span><b>正在为孩子成长做选择的家庭</b></figcaption>
             <div className="photo-badge"><HeartHandshake size={20} /><span>圣迪乐 × 孩子王</span></div>
           </figure>
@@ -163,7 +163,7 @@ export default function Home() {
         <div className="resource-heading" data-reveal><p className="eyebrow">02 / 资源互补 · BETTER TOGETHER</p><h2>你有<em>好蛋</em>，<br className="resource-mobile-break" />我有<em>好伴</em>。</h2><p>把产品的实力，接上家庭的日常。</p></div>
         <div className="resource-stage" data-reveal>
           <div className="resource-stage-label"><span>圣迪乐 · 营养产品矩阵</span><span>GOOD EGGS, GREAT POSSIBILITIES</span></div>
-          <div className="resource-visual"><img src="/assets/source/sdl-omega.png" alt="圣迪乐完整营养蛋产品组合，包含Omega-3营养蛋等系列" /></div>
+          <div className="resource-visual"><img src="assets/source/sdl-omega.png" alt="圣迪乐完整营养蛋产品组合，包含Omega-3营养蛋等系列" /></div>
           <div className="resource-stage-caption"><span>从一枚好蛋出发</span><b>让营养走进每一张家庭餐桌</b></div>
         </div>
         <div className="resource-copy" data-reveal>
@@ -264,7 +264,7 @@ export default function Home() {
       </section>
 
       <section id="weekend-lab" className="experience-section">
-        <div className="experience-image"><img src="/assets/source/kidswant-cover.png" alt="孩子王亲子家庭场景" /></div>
+        <div className="experience-image"><img src="assets/source/kidswant-cover.png" alt="孩子王亲子家庭场景" /></div>
         <div className="experience-overlay" />
         <div className="experience-content" data-reveal><p className="eyebrow">周末早餐研究所 · MONTHLY FAMILY LAB</p><h2>让孩子从食用者<br />成为早餐的共同创造者</h2><p className="experience-lead">一个可在孩子王门店复制的轻量级活动IP：每月一次，三个体验区，完成后继续进入会员成长与品质研学。</p><div className="experience-zones">{zoneDetails.map((zone,i)=><button type="button" key={zone.code} className={`zone-card zone-${zone.theme}`} onClick={()=>setActiveZone(i)}><span>{zone.code}区 / {zone.en}</span><div className="zone-mini" aria-hidden="true"><i /><i /><i /><b>{zone.code}</b></div><h3>{zone.title}</h3><p>{zone.subtitle}</p><em>进入体验区 ↗</em></button>)}</div><div className="experience-loop"><span>活动现场</span><i>→</i><span>进阶任务卡</span><i>→</i><span>30天会员计划</span><i>→</i><span>季度溯源研学</span></div></div>
       </section>
@@ -290,7 +290,7 @@ export default function Home() {
           <div className="journey-visual">
             {journeyLevel===0 && <div className="store-ui"><div className="store-sign"><span className="egg-mark"><span /></span><b>圣迪乐<br/>品质探索站</b><small>SHOP-IN-SHOP</small></div><div className="store-shelves"><i /><i /><i /></div><div className="product-stack"><span>品质蛋</span><span>营养蛋</span><span>溯源卡</span></div><div className="store-task"><span>今日任务 01</span><b>找到包装上的4个品质线索</b><i>START →</i></div></div>}
             {journeyLevel===1 && <div className="space-ui"><div className="space-grid"/><div className="space-orbit orbit-a"/><div className="space-orbit orbit-b"/><div className="space-egg"><span>MISSION</span><b>太空营养<br/>补给站</b><small>SPACE NUTRITION</small></div><div className="space-data"><span>01 营养补给</span><span>02 科学实验</span><span>03 太空早餐</span></div><div className="space-status">MISSION STATUS <b>READY</b></div></div>}
-            {journeyLevel===2 && <div className="base-ui"><img src="/assets/source/sdl-base.png" alt="圣迪乐智能高效自动化蛋品处理和包装流程"/><div className="base-overlay"/><div className="base-label"><span>REAL PRODUCTION BASE</span><b>智能高效<br/>自动化生产现场</b><p>养殖环境 → 品质检测 → 分级包装</p></div><div className="base-points"><i>01 检测</i><i>02 分级</i><i>03 包装</i></div></div>}
+            {journeyLevel===2 && <div className="base-ui"><img src="assets/source/sdl-base.png" alt="圣迪乐智能高效自动化蛋品处理和包装流程"/><div className="base-overlay"/><div className="base-label"><span>REAL PRODUCTION BASE</span><b>智能高效<br/>自动化生产现场</b><p>养殖环境 → 品质检测 → 分级包装</p></div><div className="base-points"><i>01 检测</i><i>02 分级</i><i>03 包装</i></div></div>}
           </div>
           <div className="journey-detail"><div className="journey-kicker"><span>{journeyLevels[journeyLevel].level}</span><i>{journeyLevels[journeyLevel].en}</i></div><h3>{journeyLevels[journeyLevel].title}</h3><p className="journey-purpose">{journeyLevels[journeyLevel].purpose}</p><div className="journey-experience"><span>孩子在这里完成什么</span>{journeyLevels[journeyLevel].experience.map((x,i)=><div key={x}><i>0{i+1}</i><b>{x}</b></div>)}</div><div className="journey-value"><span>提供的体验与附加价值</span><p>{journeyLevels[journeyLevel].value}</p></div><div className="journey-output"><span>完成后获得</span><b>{journeyLevels[journeyLevel].output}</b></div>
           {journeyLevel===0&&<div className="journey-program"><span>店中店空间怎么设计</span><div><article><i>01</i><b>品牌入口</b><p>橙色门头与成长旅行地图，说明三级任务。</p></article><article><i>02</i><b>品质陈列</b><p>产品堆头、包装信息墙与溯源入口。</p></article><article><i>03</i><b>任务桌</b><p>线索卡、观察工具与亲子拼图。</p></article><article><i>04</i><b>成果点</b><p>盖章、拍照并领取下一等级解锁码。</p></article></div></div>}
@@ -343,7 +343,7 @@ export default function Home() {
       </section>
 
       <section className="final-section">
-        <img src="/assets/source/sdl-cover.png" alt="圣迪乐天生阳光品牌视觉" />
+        <img src="assets/source/sdl-cover.png" alt="圣迪乐天生阳光品牌视觉" />
         <div className="final-shade" />
         <div className="final-content" data-reveal><p className="eyebrow">MANAGEMENT DECISION</p><h2>从战略共识<br />到联合行动</h2><div className="decisions"><div><span>01</span><b>Strategic Alignment</b><p>确认合作主题与五大方向</p></div><div><span>02</span><b>Resource Commitment</b><p>明确联合项目负责人与资源支持</p></div><div><span>03</span><b>Pilot & Scale</b><p>启动90天试点，建立评估与复制机制</p></div></div><blockquote>从一枚鸡蛋开始，让营养走进每一个家庭的日常。</blockquote><p className="final-note">以商品连接家庭，以体验建立信任，以会员经营关系，以创新创造持续增长。</p></div>
       </section>
