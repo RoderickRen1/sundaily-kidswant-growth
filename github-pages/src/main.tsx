@@ -5,6 +5,7 @@ import '../../app/globals.css';
 import '../../app/proposal.css';
 import '../../app/hero-refinement.css';
 import '../../app/strength.css';
+import '../../app/partnership.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
