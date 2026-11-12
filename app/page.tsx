@@ -63,14 +63,6 @@ const strengthProducts = [
     desc: '从儿童成长场景出发，提供更清晰的营养选择。',
     tags: ['发明专利配方', 'NSF可生食及无抗认证'],
   },
-  {
-    name: '减胆固醇营养蛋',
-    en: 'LIGHTER CHOICE',
-    image: 'assets/source/product-cholesterol.jpg',
-    proof: '减少60%胆固醇',
-    desc: '为关注胆固醇摄入的家庭成员提供细分选择。',
-    tags: ['12.8g蛋白质/100g', 'NSF可生食及无抗认证'],
-  },
 ];
 
 const dayDetails = [
