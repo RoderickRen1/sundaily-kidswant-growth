@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDown, Baby, Building2, CalendarHeart, Gift, HeartHandshake, ShoppingBasket, Sparkles } from 'lucide-react';
+import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, Orbit, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const insightDetails = [
@@ -44,6 +44,33 @@ const insightDetails = [
       ['亲子烹饪项目的准实验研究','https://pmc.ncbi.nlm.nih.gov/articles/PMC7551038/']
     ]
   }
+];
+
+const strengthProducts = [
+  {
+    name: 'OMEGA-3营养蛋',
+    en: 'OMEGA-3 NUTRITION',
+    image: 'assets/source/product-omega3.png',
+    proof: '2倍 OMEGA-3',
+    desc: '把营养科研装进家庭日常的一枚蛋。',
+    tags: ['布鲁塞尔美味三星奖章', '行业标准起草单位之一'],
+  },
+  {
+    name: '儿童超级营养蛋',
+    en: 'FOR GROWING KIDS',
+    image: 'assets/source/product-kids.jpg',
+    proof: '博士爸妈专研配方',
+    desc: '从儿童成长场景出发，提供更清晰的营养选择。',
+    tags: ['发明专利配方', 'NSF可生食及无抗认证'],
+  },
+  {
+    name: '减胆固醇营养蛋',
+    en: 'LIGHTER CHOICE',
+    image: 'assets/source/product-cholesterol.jpg',
+    proof: '减少60%胆固醇',
+    desc: '为关注胆固醇摄入的家庭成员提供细分选择。',
+    tags: ['12.8g蛋白质/100g', 'NSF可生食及无抗认证'],
+  },
 ];
 
 const dayDetails = [
@@ -94,6 +121,7 @@ export default function Home() {
   const [journeyLevel, setJourneyLevel] = useState(0);
   const [b2cGift, setB2cGift] = useState(0);
   const [b2bGift, setB2bGift] = useState(0);
+  const [strengthProduct, setStrengthProduct] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -112,7 +140,7 @@ export default function Home() {
     <main>
       <nav className="site-nav">
         <a href="#top" className="brand-lockup" aria-label="返回首页"><span className="egg-mark"><span /></span><span>圣迪乐 <b>×</b> KW 孩子王</span></a>
-        <a href="#opportunity" className="nav-cta">合作蓝图</a>
+        <a href="#strength" className="nav-cta">品牌实力</a>
       </nav>
       <section id="top" className="hero">
         <img className="hero-image" src="assets/source/sdl-family.png" alt="圣迪乐家庭早餐品牌场景" />
@@ -135,7 +163,63 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a href="#opportunity" className="scroll-cue" aria-label="向下浏览"><span>SCROLL TO EXPLORE</span><ArrowDown size={18} /></a>
+        <a href="#strength" className="scroll-cue" aria-label="向下浏览"><span>SCROLL TO EXPLORE</span><ArrowDown size={18} /></a>
+      </section>
+      <section id="strength" className="section strength-section">
+        <div className="strength-aura aura-one" /><div className="strength-aura aura-two" />
+        <div className="strength-top" data-reveal>
+          <div className="strength-title">
+            <p className="eyebrow">SUNDaily QUALITY / 品牌实力</p>
+            <h2>顶级品质，<br />不止一枚<em>好蛋</em></h2>
+          </div>
+          <div className="strength-statement">
+            <img src="assets/source/sundaily-logo-white.png" alt="圣迪乐品牌标志" />
+            <p>从种源、饲料、养殖到分级包装，圣迪乐以全产业链和营养科研，让每一枚蛋的品质都可被看见。</p>
+            <span>中国第一鸡蛋品牌<sup>＊</sup></span>
+          </div>
+        </div>
+        <div className="strength-proof-grid" data-reveal>
+          <article className="strength-proof proof-base">
+            <img src="assets/source/sundaily-base-landscape.jpg" alt="圣迪乐现代化养殖基地" />
+            <div className="proof-shade" />
+            <span className="proof-icon"><ShieldCheck /></span>
+            <div><small>FULL CHAIN</small><b><strong>22</strong>座超五星养殖基地</b><p>行业首家建立全产业链的蛋品企业，承诺不外采一枚蛋。</p></div>
+          </article>
+          <article className="strength-proof proof-control">
+            <span className="proof-icon"><Sparkles /></span><small>QUALITY CONTROL</small>
+            <b><strong>1185</strong><i>个安全控制点</i></b>
+            <p>从饲料、种鸡、青年鸡、蛋鸡，到生产车间与运输，建立贯穿全程的品质控制。</p>
+            <div className="control-rings"><i /><i /><i /></div>
+          </article>
+          <article className="strength-proof proof-research">
+            <img src="assets/source/sundaily-scientist.jpg" alt="圣迪乐营养科研专家" />
+            <span className="proof-icon"><FlaskConical /></span><small>NUTRITION SCIENCE</small>
+            <b><strong>14</strong>年营养科研</b>
+            <p>携手17家科研单位，历经879场实验与超过100万枚鸡蛋验证。</p>
+          </article>
+          <article className="strength-proof proof-space">
+            <span className="proof-icon"><Orbit /></span><small>TRUSTED PARTNER</small>
+            <b>中国航天<br />唯一蛋品合作伙伴</b>
+            <p>用长期稳定的品质能力，成为值得信任的中国鸡蛋品牌。</p>
+            <div className="space-orbit"><i /><i /></div>
+          </article>
+        </div>
+        <div className="strength-product-stage" data-reveal>
+          <div className="product-copy">
+            <span>PRODUCT PORTFOLIO / 让顶级品质进入日常</span>
+            <h3>{strengthProducts[strengthProduct].name}</h3>
+            <b>{strengthProducts[strengthProduct].proof}</b>
+            <p>{strengthProducts[strengthProduct].desc}</p>
+            <div>{strengthProducts[strengthProduct].tags.map(tag=><i key={tag}>{tag}</i>)}</div>
+            <nav aria-label="切换产品">{strengthProducts.map((product,index)=><button type="button" key={product.name} className={strengthProduct===index?'active':''} onClick={()=>setStrengthProduct(index)}><span>0{index+1}</span>{product.en}</button>)}</nav>
+          </div>
+          <div className="product-spotlight">
+            <div className="spotlight-label"><span>QUALITY MADE VISIBLE</span><b>为每一种家庭需求<br />认真做好一枚蛋</b></div>
+            <img key={strengthProducts[strengthProduct].image} src={strengthProducts[strengthProduct].image} alt={strengthProducts[strengthProduct].name} />
+            <span className="spotlight-egg">SUNDaily<br />FARM</span>
+          </div>
+        </div>
+        <p className="strength-source">＊页面信息与数据来源：《圣迪乐公司及产品介绍（心智品）》；产品信息以实际包装及双方审核口径为准。</p>
       </section>
       <section id="opportunity" className="section opportunity">
         <div className="section-index">01 / OPPORTUNITY</div>
