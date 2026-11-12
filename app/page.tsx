@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, Orbit, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
+import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const insightDetails = [
@@ -198,7 +198,8 @@ export default function Home() {
             <p>携手17家科研单位，历经879场实验与超过100万枚鸡蛋验证。</p>
           </article>
           <article className="strength-proof proof-space">
-            <span className="proof-icon"><Orbit /></span><small>TRUSTED PARTNER</small>
+            <div className="space-partner-mark"><img src="assets/source/sundaily-space-partner-logo.png" alt="圣迪乐与中国航天事业合作伙伴联合标志" /></div>
+            <small>TRUSTED PARTNER</small>
             <b>中国航天<br />唯一蛋品合作伙伴</b>
             <p>用长期稳定的品质能力，成为值得信任的中国鸡蛋品牌。</p>
             <div className="space-orbit"><i /><i /></div>
