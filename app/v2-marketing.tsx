@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Check, ChevronRight, Gift, Heart, QrCode, Rocket, ShieldCheck, Sparkles, Store, Users } from 'lucide-react';
+import { ArrowRight, CalendarDays, Check, ChevronRight, Gift, Heart, QrCode, Rocket, ShieldCheck, Sparkles, Store, Users, WalletCards } from 'lucide-react';
 import { useState } from 'react';
 
 const activities = [
@@ -38,6 +38,49 @@ const b2cGifts = [
   ['春节家庭礼赠','把一份日常营养，送进全家团聚的新年。'],['祖辈关怀','不能每天陪你吃饭，就把一份日常关心送到家。'],['新生家庭','愿新生活的每一天，都有好好吃饭的温暖。'],['节日亲友','用一份实用的营养心意，表达想念与祝福。']
 ];
 
+const planTables = [
+  {
+    name:'活动排期表', icon:'01', en:'90-DAY PILOT', summary:'12周完成准备、试点、验证与复盘，先用10家门店建立低成本样板。',
+    heads:['阶段','时间','核心动作','交付与验收'],
+    rows:[
+      ['准备校准','第1—2周','确认10家试点门店、产品与活动SOP；培训20名门店伙伴','物料定稿、名单与排班、培训通过率≥90%'],
+      ['首轮试点','第3—4周','2场开荤礼＋10店早餐实验室首轮招募','家庭报名≥300组；任务启动率≥60%'],
+      ['集中运营','第5—8周','7天挑战、会员承接、4场周末研究所','7天完成率≥35%；体验转化率≥15%'],
+      ['品质深化','第9—10周','1场基地溯源＋航天主题内容预热','20组限定家庭；形成1套联合内容素材'],
+      ['礼赠验证','第11周','B2C礼卡小范围测试＋3家企业客户提案','礼卡意向≥100张；企业有效商机≥3个'],
+      ['复盘复制','第12周','销售、会员、活动和消费者反馈联合复盘','形成继续/调整/停止清单与下一阶段预算'],
+    ]
+  },
+  {
+    name:'费用预算表', icon:'02', en:'COST CONTROL', summary:'试点总预算控制在9.96万元，优先复用门店空间与现有内容资产。',
+    heads:['费用项','测算口径','预算（元）','控制原则'],
+    rows:[
+      ['活动物料','10店基础套装＋4场周末活动＋2场开荤礼','18,000','模块化制作，跨活动复用'],
+      ['试吃与奖励产品','10店×2轮试吃＋挑战奖励与样品','12,000','按报名核销，避免大面积派样'],
+      ['门店执行','兼职支持、培训、4场活动基础执行','24,000','门店人员主导，外部执行只补关键场次'],
+      ['内容制作','摄影1天＋短视频3条＋页面/任务卡适配','15,000','使用现有品牌素材，集中一次拍摄'],
+      ['会员与数据','报名页、短信/社群触达、简版数据看板','8,000','先做轻量工具，不开发独立系统'],
+      ['消费者研究','活动访谈、问卷、复盘报告','6,000','与现场活动同步采集'],
+      ['物流与仓储','试点物料及产品分批配送','7,000','按周补货，降低积压'],
+      ['预备金','约10%的不可预见费用','9,600','须经双方项目负责人确认后使用'],
+      ['合计','90天 / 10家门店','99,600','未经确认不扩店、不扩制作'],
+    ]
+  },
+  {
+    name:'ROI测算表', icon:'03', en:'BASE CASE', summary:'以90天基准情景测算，先看项目直接回报，再看会员与企业商机的后续价值。',
+    heads:['收益来源','关键假设','90天GMV（元）','验证指标'],
+    rows:[
+      ['门店增量零售','10店×90天×5盒/天×49.9元','224,550','日均增量盒数、活动前后同店对比'],
+      ['联合礼卡','300张×199元平均实付','59,700','售卡率、核销率、履约成本'],
+      ['企业订单','3家客户×30,000元首单','90,000','有效商机数、报价转订单率'],
+      ['合计GMV','三条收入线合计','374,250','不含自然销售，不重复归因'],
+      ['预计毛利','按综合毛利率30%测算','112,275','以双方实际产品与渠道毛利复核'],
+      ['项目投入','对应费用预算表','99,600','预算偏差≤10%'],
+      ['直接项目ROI','（预计毛利－投入）÷投入','12.7%','盈亏平衡GMV约33.2万元'],
+    ]
+  }
+];
+
 export default function V2Marketing(){
   const [activity,setActivity]=useState(0);
   const [ceremony,setCeremony]=useState(0);
@@ -51,6 +94,7 @@ export default function V2Marketing(){
   const [member,setMember]=useState(0);
   const [giftMode,setGiftMode]=useState(0);
   const [giftScene,setGiftScene]=useState(0);
+  const [planOpen,setPlanOpen]=useState<number|null>(null);
 
   return <>
     <span id="opportunity" className="v2-anchor-alias" aria-hidden="true" />
@@ -69,7 +113,7 @@ export default function V2Marketing(){
     <section id="first-bite" className="section ceremony-section">
       <div className="campaign-head" data-reveal><div><p className="eyebrow">ACTIVITY 01 / GROWTH RITUAL</p><h2>人生第一枚好蛋，<br/>值得<em>认真纪念</em></h2></div><div className="campaign-meta"><span>0.5—3岁宝宝家庭</span><b>人生第一枚好蛋·宝宝开荤礼</b><small>圣迪乐牵头：宣明海｜战区</small></div></div>
       <div className="ceremony-stage" data-reveal>
-        <div className="ceremony-visual"><img src="assets/source/v2-nutrition-class.jpg" alt="圣迪乐真实营养科普与体验场景"/><div><span>THE FIRST GOOD EGG</span><b>礼盒获得体面<br/>礼卡获得出口<br/>仪式让家庭记得住</b></div></div>
+        <div className="ceremony-visual"><img src="assets/source/kidswant-cover.png" alt="孩子王母子成长场景"/><div><span>THE FIRST GOOD EGG</span><b>礼盒获得体面<br/>礼卡获得出口<br/>仪式让家庭记得住</b></div></div>
         <div className="ceremony-panel"><div className="ceremony-tabs" role="tablist">{ceremonyTabs.map((x,i)=><button type="button" role="tab" aria-selected={ceremony===i} className={ceremony===i?'active':''} onClick={()=>setCeremony(i)} key={x.name}>{x.name}</button>)}</div><div className="ceremony-copy"><span>0{ceremony+1} / FORMAT</span><h3>{ceremonyTabs[ceremony].title}</h3><p>{ceremonyTabs[ceremony].copy}</p><div>{ceremonyTabs[ceremony].tags.map(x=><b key={x}>{x}</b>)}</div>{ceremony===1&&<button type="button" className="primary-btn" onClick={()=>setCardOpen(true)}> <Sparkles size={15}/>生成成长纪念卡</button>}{ceremony===2&&<div className="mini-flow">{['预约报名','家庭签到','领取礼卡','祝福仪式','亲子合影','自愿体验'].map((x,i)=><span key={x}><i>{i+1}</i>{x}</span>)}</div>}</div></div>
       </div>
       <div className="campaign-value" data-reveal><span>孩子王合作价值</span><div><b>门店引流</b><b>成长仪式</b><b>礼盒销售</b><b>社交传播</b></div><p>食品体验应使用适龄、安全、充分熟制的食品，并由家长确认是否适合宝宝食用。</p></div>
@@ -91,7 +135,7 @@ export default function V2Marketing(){
     <section id="family-journey" className="section v2-journey">
       <div className="campaign-head" data-reveal><div><p className="eyebrow">ACTIVITY 03 / TRACE & EXPLORE</p><h2>从产地到餐桌，<br/>探索一枚鸡蛋的<em>成长</em></h2></div><div className="campaign-meta"><span>孩子王新老会员家庭</span><b>一枚鸡蛋的成长旅行</b><small>圣迪乐牵头：肖春霞｜品牌部、市场部</small></div></div>
       <div className="journey-switch" role="tablist" data-reveal><button type="button" className={journey===0?'active':''} onClick={()=>setJourney(0)}><ShieldCheck/>真实基地溯源</button><button type="button" className={journey===1?'active':''} onClick={()=>setJourney(1)}><Rocket/>航天主题探索</button></div>
-      {journey===0?<div className="journey-scene base-scene" data-reveal><div className="journey-image"><img src="assets/source/v2-farm-chain.png" alt="圣迪乐真实基地、生产与养殖场景"/><span>REAL SUNDaily BASE</span></div><div className="journey-copy"><span>SCENE A</span><h3>带孩子看看，每天吃的鸡蛋从哪里来</h3><p>从品牌与基地介绍，到养殖生产知识、品质溯源、亲子互动和联合内容拍摄。</p><div className="journey-steps">{['会员报名','行前安全说明','开放区域参观','品质任务','家庭合影与复盘'].map((x,i)=><div key={x}><i>0{i+1}</i><b>{x}</b></div>)}</div><small>活动路线以基地实际允许开放的区域及接待条件为准；获得拍摄及肖像授权后，方可形成双方使用的品牌素材。</small></div></div>:<div className="journey-scene space-scene" data-reveal><div className="journey-image"><img src="assets/source/v2-space-event.jpg" alt="圣迪乐航天主题品牌活动实拍"/><span>SPACE-THEMED EXPERIENCE</span></div><div className="journey-copy"><span>SCENE B</span><h3>让一次亲子探索，成为值得期待的会员成长权益</h3><div className="space-quota"><b>每半年3个名额</b><span>2027年全年拟设6个名额</span><small>名额具体定义待确认</small></div><div className="space-rights"><span>可探索内容</span><b>航天主题亲子活动</b><b>航天知识互动</b><b>家庭成长体验</b><b>品牌内容共创</b></div><p className="legal-note">拟议合作权益，具体以授权及执行条件确认为准。</p></div></div>}
+      {journey===0?<div className="journey-scene base-scene" data-reveal><div className="journey-image"><img src="assets/source/v2-nutrition-class.jpg" alt="圣迪乐白大褂品质研学实景"/><span>REAL SUNDaily BASE</span></div><div className="journey-copy"><span>SCENE A</span><h3>带孩子看看，每天吃的鸡蛋从哪里来</h3><p>从品牌与基地介绍，到养殖生产知识、品质溯源、亲子互动和联合内容拍摄。</p><div className="journey-steps">{['会员报名','行前安全说明','开放区域参观','品质任务','家庭合影与复盘'].map((x,i)=><div key={x}><i>0{i+1}</i><b>{x}</b></div>)}</div><small>活动路线以基地实际允许开放的区域及接待条件为准；获得拍摄及肖像授权后，方可形成双方使用的品牌素材。</small></div></div>:<div className="journey-scene space-scene" data-reveal><div className="journey-image"><img src="assets/source/v2-space-event.jpg" alt="圣迪乐航天主题品牌活动实拍"/><span>SPACE-THEMED EXPERIENCE</span></div><div className="journey-copy"><span>SCENE B</span><h3>让一次亲子探索，成为值得期待的会员成长权益</h3><div className="space-quota"><b>每半年3个名额</b><span>2027年全年拟设6个名额</span><small>名额具体定义待确认</small></div><div className="space-rights"><span>可探索内容</span><b>航天主题亲子活动</b><b>航天知识互动</b><b>家庭成长体验</b><b>品牌内容共创</b></div><p className="legal-note">拟议合作权益，具体以授权及执行条件确认为准。</p></div></div>}
       <div className="campaign-value" data-reveal><span>孩子王合作价值</span><div><b>品牌信任</b><b>亲子体验</b><b>会员权益</b><b>联合内容资产</b></div></div>
     </section>
 
@@ -106,7 +150,22 @@ export default function V2Marketing(){
       <div className="campaign-head" data-reveal><div><p className="eyebrow">ACTIVITY 05 / NUTRITION GIFTING</p><h2>一份好蛋，<br/>送给每一个<em>值得关心的人</em></h2></div><div className="campaign-meta"><span>家庭礼赠消费者、企业及团体客户</span><b>把营养送给你爱的人</b><small>圣迪乐牵头：杨明｜特渠</small></div></div>
       <div className="gift-mode" role="tablist" data-reveal><button type="button" className={giftMode===0?'active':''} onClick={()=>setGiftMode(0)}><Heart/>B2C 家庭礼赠</button><button type="button" className={giftMode===1?'active':''} onClick={()=>setGiftMode(1)}><Users/>B2B 企业关怀</button></div>
       <div className={`gift-v2-stage mode-${giftMode}`} data-reveal><div className="joint-card"><div className="joint-brand"><span className="egg-mark"><span/></span><b>圣迪乐 <i>×</i> 孩子王</b></div><small>{giftMode===0?'FAMILY NUTRITION GIFT':'ENTERPRISE FAMILY CARE'}</small><h3>{giftMode===0?b2cGifts[giftScene][0]:'企业家庭关怀卡'}</h3><p>{giftMode===0?b2cGifts[giftScene][1]:'让企业福利从一份实物，延伸到员工的家庭日常。'}</p><div className="joint-egg"><span>营养<br/>有蛋</span></div><b className="card-demo">联合蛋卡 · 概念演示</b></div><div className="gift-v2-copy"><span>{giftMode===0?'ROUTE A / PERSONAL GIFT':'ROUTE B / CORPORATE CARE'}</span><h3>{giftMode===0?'把营养与关心，送到家人身边':'让企业福利延伸到员工家庭'}</h3>{giftMode===0?<div className="gift-scenes">{b2cGifts.map((x,i)=><button type="button" className={giftScene===i?'active':''} onClick={()=>setGiftScene(i)} key={x[0]}>{x[0]}</button>)}</div>:<div className="b2b-scenes"><b>企业员工福利</b><b>工会采购</b><b>企业节庆礼赠</b><b>员工家庭关怀</b></div>}<div className="gift-use-flow"><span>购买礼卡</span><i>→</i><span>赠送／发放</span><i>→</i><span>收礼人领取</span><i>→</i><span>按规则兑换</span></div><small>不代表已上线卡券；面额、有效期、兑换区域、物流及履约规则待双方确认。</small></div></div>
+      {giftMode===1&&<div className="enterprise-logic" data-reveal><div className="enterprise-routes"><article><span>通路一</span><b>借孩子王的企业客户资源</b><p>借大企业员工福利与内购客户，礼盒、客户名单与履约通道双方协同。</p></article><article><span>通路二</span><b>圣迪乐自有企务客户</b><p>集采、一件代发、礼卡三种方式开放，孩子王亲子活动权益作为差异化加值。</p></article><article><span>通路三</span><b>异业联合，做联合提案</b><p>月子中心、儿童摄影、母婴品牌共同设计“刚生完孩子的人”精准场景。</p></article></div><div className="procurement-check"><span>采购一定会问的五个问题</span>{['能不能开发票、什么税点','多少起订、交货几天','临期或破损怎么退换','能不能印企业LOGO与祝福语','比超市贵多少、责任在哪里'].map((x,i)=><b key={x}><i>0{i+1}</i>{x}</b>)}<p>先把交付讲清楚，再进入采购清单。</p></div></div>}
       <div className="campaign-value" data-reveal><span>孩子王合作价值</span><div><b>节庆销售</b><b>礼卡产品</b><b>企业客户开发</b><b>家庭消费场景延伸</b></div></div>
+    </section>
+
+    <section id="business-plan" className="section business-plan">
+      <div className="campaign-head" data-reveal><div><p className="eyebrow">EXECUTION MODEL / 90-DAY PILOT</p><h2>把创意变成，<br/>可以算清楚的<em>生意</em></h2></div><div className="campaign-meta"><span>10家试点门店 · 90天</span><b>排期、预算、回报三张经营表</b><small>点击每张表查看完整测算口径</small></div></div>
+      <div className="plan-cards" data-reveal>{planTables.map((table,i)=><button type="button" onClick={()=>setPlanOpen(i)} key={table.name}><span>{table.icon}</span>{i===0?<CalendarDays/>:i===1?<WalletCards/>:<ArrowRight/>}<small>{table.en}</small><b>{table.name}</b><p>{table.summary}</p><em>打开完整表格 ↗</em></button>)}</div>
+      <div className="plan-guardrails" data-reveal><b>成本控制线</b><span>先10店后扩张</span><span>先复用再制作</span><span>按报名核销派样</span><span>预算偏差≤10%</span><span>每4周设置止损复盘</span></div>
+      <p className="plan-note" data-reveal>测算为可落地的90天试点管理模型，价格、毛利、税率与企业订单须由双方财务及业务负责人按实际合同复核；不作为已发生业绩或收益承诺。</p>
+    </section>
+    {planOpen!==null&&<div className="v2-modal plan-modal" role="dialog" aria-modal="true" aria-label={planTables[planOpen].name} onClick={()=>setPlanOpen(null)}><article className="plan-sheet" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setPlanOpen(null)} aria-label="关闭">×</button><div className="plan-sheet-head"><span>{planTables[planOpen].en}</span><h3>{planTables[planOpen].name}</h3><p>{planTables[planOpen].summary}</p></div><div className="plan-table-wrap"><table><thead><tr>{planTables[planOpen].heads.map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{planTables[planOpen].rows.map((row,i)=><tr key={i}>{row.map((x,j)=><td key={j}>{x}</td>)}</tr>)}</tbody></table></div><div className="plan-sheet-foot"><span>BASELINE</span><b>{planOpen===0?'12周完成一次可复盘的闭环':planOpen===1?'试点总预算 ¥99,600': '基准情景直接项目ROI 12.7%'}</b><small>所有口径以双方最终审核及实际执行数据为准</small></div></article></div>}
+
+    <section id="vision" className="vision-section">
+      <div className="vision-orbit orbit-a"/><div className="vision-orbit orbit-b"/>
+      <div className="vision-copy" data-reveal><p className="eyebrow">OUR SHARED VISION / 共同愿景</p><span>SUNDaily is the Good Egg for Growing Families.</span><h2>让每一枚好蛋，<br/>都成为家庭成长路上的<em>温暖陪伴</em></h2><p>孩子王连接家庭，圣迪乐守护品质。我们不只创造一次购买，而是共同设计从宝宝第一口、儿童成长到全家营养的长期关系。</p><div><b>一枚好蛋</b><i>×</i><b>一个家庭</b><i>×</i><b>每一个成长阶段</b></div><a href="#top">营养有蛋 · 成长有伴 <ArrowRight/></a></div>
+      <div className="vision-egg" aria-hidden="true"><span/><b>GROW<br/>TOGETHER</b></div>
     </section>
   </>;
 }

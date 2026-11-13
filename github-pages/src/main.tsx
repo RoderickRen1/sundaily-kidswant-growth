@@ -8,6 +8,7 @@ import '../../app/strength.css';
 import '../../app/partnership.css';
 import '../../app/v2-marketing.css';
 import '../../app/v2-anchor.css';
+import '../../app/v3-refinement.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

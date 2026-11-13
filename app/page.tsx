@@ -67,7 +67,7 @@ const strengthProducts = [
     desc: '围绕儿童早餐场景设计的专属营养蛋，让产品价值更容易被孩子王家庭理解。',
     tags: ['博士爸妈专研配方', '发明专利配方'],
     fit: '产品人群与孩子王核心家庭高度一致，可直接连接儿童营养咨询、亲子活动与会员内容。',
-    specs: ['4枚体验装', '20枚家庭装', '30枚周期装'],
+    specs: ['20枚家庭装', '30枚周期装'],
     giftCards: [],
   },
 ];
@@ -148,6 +148,7 @@ export default function Home() {
           <div className="hero-kicker"><Sparkles size={15} /> 家庭营养成长陪伴计划</div>
           <h1><span>营养有蛋</span><br />成长有伴</h1>
           <p className="hero-en">BORN TO SHINE, GROW TOGETHER.</p>
+          <p className="hero-sundaily"><span>SUNDaily is</span> the Good Egg for Growing Families.</p>
           <p className="hero-note">从一枚营养蛋出发，陪伴孩子每一个成长阶段</p>
           <div className="hero-concept" aria-label="核心合作概念">
             <div className="concept-summary">

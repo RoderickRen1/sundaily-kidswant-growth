@@ -11,6 +11,7 @@
   gap: 34px;
   align-items: center;
 }
+.hero-sundaily{display:flex;align-items:baseline;gap:10px;margin:12px 0 0;color:#fff;font-size:clamp(16px,1.55vw,25px);font-weight:700;letter-spacing:.01em}.hero-sundaily span{color:#ff6a27;font-size:.63em;letter-spacing:.16em;text-transform:uppercase}
 .concept-summary { display:flex; flex-direction:column; gap:7px; }
 .concept-summary span { font-size:9px; letter-spacing:.18em; color:#ffc993; }
 .concept-summary b { font-size:15px; line-height:1.45; color:#fff5ea; }
@@ -23,11 +24,13 @@
 @media (max-height: 820px) and (min-width: 801px) {
   .hero h1 { font-size:clamp(62px,8.5vw,126px); }
   .hero-en { margin-top:22px; }
+  .hero-sundaily{display:block;font-size:17px;line-height:1.45}.hero-sundaily span{display:block;margin-bottom:4px}
   .hero-concept { margin-top:18px; padding-top:12px; padding-bottom:12px; }
 }
 @media (max-width: 800px) {
   .hero { align-items:flex-start; padding-top:122px; min-height:100svh; }
   .hero-content { padding-top:0; }
+  .hero-sundaily{display:block;font-size:17px;line-height:1.45}.hero-sundaily span{display:block;margin-bottom:4px}
   .hero-concept { width:calc(100vw - 48px); margin-top:22px; padding:14px 0; grid-template-columns:1fr; gap:14px; background:transparent; backdrop-filter:none; }
   .concept-summary b { font-size:13px; }
   .concept-logic { grid-template-columns:1fr 12px 1fr; row-gap:12px; }
