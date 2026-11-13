@@ -2,6 +2,7 @@
 
 import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import V2Marketing from './v2-marketing';
 
 const insightDetails = [
   {
@@ -260,7 +261,7 @@ export default function Home() {
         </div>
         <div className="fit-answer" data-reveal><span>合作结论</span><b>孩子王提供家庭入口与服务场景，圣迪乐提供差异化产品、品质体系、科研内容与真实体验：双方共同把一枚蛋做成贯穿家庭成长的长期营养入口。</b><a href="#opportunity">查看合作机会 ↘</a></div>
       </section>
-      <section id="opportunity" className="section opportunity">
+      {false && <><section id="opportunity" className="section opportunity">
         <div className="section-index">02 / OPPORTUNITY</div>
         <div className="opportunity-heading" data-reveal>
           <div><p className="eyebrow">战略合作机会 · OPPORTUNITY</p><h2>不止卖一盒蛋，<br />共同经营一个家庭的<em>营养成长</em></h2></div>
@@ -454,7 +455,8 @@ export default function Home() {
         <img src="assets/source/sdl-cover.png" alt="圣迪乐天生阳光品牌视觉" />
         <div className="final-shade" />
         <div className="final-content" data-reveal><p className="eyebrow">MANAGEMENT DECISION</p><h2>从战略共识<br />到联合行动</h2><div className="decisions"><div><span>01</span><b>Strategic Alignment</b><p>确认合作主题与五大方向</p></div><div><span>02</span><b>Resource Commitment</b><p>明确联合项目负责人与资源支持</p></div><div><span>03</span><b>Pilot & Scale</b><p>启动90天试点，建立评估与复制机制</p></div></div><blockquote>从一枚鸡蛋开始，让营养走进每一个家庭的日常。</blockquote><p className="final-note">以商品连接家庭，以体验建立信任，以会员经营关系，以创新创造持续增长。</p></div>
-      </section>
+      </section></>}
+      <V2Marketing />
     </main>
   );
 }

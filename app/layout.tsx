@@ -5,6 +5,8 @@ import './proposal.css';
 import './hero-refinement.css';
 import './strength.css';
 import './partnership.css';
+import './v2-marketing.css';
+import './v2-anchor.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,16 +21,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sundaily-kidswant-growth.rjhy188816.chatgpt.site'),
   title: '营养有蛋，成长有伴｜圣迪乐 × 孩子王',
-  description: '圣迪乐与孩子王家庭营养成长计划战略合作提案',
+  description: '圣迪乐 × 孩子王｜2027家庭营养成长五大联合营销活动提案',
   openGraph: {
     title: '营养有蛋，成长有伴',
-    description: '圣迪乐 × 孩子王｜家庭营养成长计划',
+    description: '圣迪乐 × 孩子王｜2027五大联合营销活动',
     images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: '营养有蛋，成长有伴',
-    description: '圣迪乐 × 孩子王｜家庭营养成长计划',
+    description: '圣迪乐 × 孩子王｜2027五大联合营销活动',
     images: ['/og.png'],
   },
 };
