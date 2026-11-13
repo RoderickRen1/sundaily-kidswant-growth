@@ -138,7 +138,7 @@ export default function Home() {
   return (
     <main>
       <nav className="site-nav">
-        <a href="#top" className="brand-lockup" aria-label="返回首页"><span className="egg-mark"><span /></span><span>圣迪乐 <b>×</b> KW 孩子王</span></a>
+        <a href="#top" className="brand-lockup" aria-label="返回首页"><span className="official-egg"><img src="assets/source/sundaily-logo-white.png" alt="圣迪乐" /></span><span>圣迪乐 <b>×</b> KW 孩子王</span></a>
         <a href="#strength" className="nav-cta">品牌实力</a>
       </nav>
       <section id="top" className="hero">
@@ -190,7 +190,8 @@ export default function Home() {
             <div className="partner-wall-shade" />
             <small>TRUSTED BY LEADING BRANDS</small>
             <b>全球优质客户的选择</b>
-            <p>连锁餐饮 · 500强企业 · 五星级酒店 · 国际峰会 · 网红餐厅</p>
+            <p>从高频餐饮到国际峰会，用清晰的客户类型呈现长期服务能力。</p>
+            <div className="partner-categories"><span><i>01</i><b>连锁餐饮</b><small>KFC · 麦当劳 · 海底捞</small></span><span><i>02</i><b>500强企业</b><small>华为 · 腾讯 · Google</small></span><span><i>03</i><b>五星酒店</b><small>万豪 · 希尔顿 · 喜来登</small></span><span><i>04</i><b>国际峰会</b><small>G20 · 金砖峰会</small></span><span><i>05</i><b>新消费品牌</b><small>奈雪 · 鲍师傅 · 太二</small></span></div>
           </article>
           <article className="strength-proof proof-research">
             <img src="assets/source/sundaily-scientist.jpg" alt="圣迪乐营养科研专家" />

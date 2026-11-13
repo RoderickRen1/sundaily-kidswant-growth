@@ -44,39 +44,41 @@ const planTables = [
     heads:['阶段','时间','核心动作','交付与验收'],
     rows:[
       ['准备校准','第1—2周','确认10家试点门店、产品与活动SOP；培训20名门店伙伴','物料定稿、名单与排班、培训通过率≥90%'],
-      ['首轮试点','第3—4周','2场开荤礼＋10店早餐实验室首轮招募','家庭报名≥300组；任务启动率≥60%'],
-      ['集中运营','第5—8周','7天挑战、会员承接、4场周末研究所','7天完成率≥35%；体验转化率≥15%'],
-      ['品质深化','第9—10周','1场基地溯源＋航天主题内容预热','20组限定家庭；形成1套联合内容素材'],
+      ['首轮试点','第3—4周','第1场：开荤礼小场＋10店早餐实验室首轮招募','家庭报名≥300组；任务启动率≥60%'],
+      ['集中运营','第5—8周','第2—3场：两场周末研究所；同步运行7天挑战与会员承接','7天完成率≥35%；体验转化率≥15%'],
+      ['品质深化','第9—10周','第4场：基地溯源小场＋航天主题内容预热','20组限定家庭；形成1套联合内容素材'],
       ['礼赠验证','第11周','B2C礼卡小范围测试＋3家企业客户提案','礼卡意向≥100张；企业有效商机≥3个'],
       ['复盘复制','第12周','销售、会员、活动和消费者反馈联合复盘','形成继续/调整/停止清单与下一阶段预算'],
     ]
   },
   {
-    name:'费用预算表', icon:'02', en:'COST CONTROL', summary:'试点总预算控制在9.96万元，优先复用门店空间与现有内容资产。',
+    name:'费用预算表', icon:'02', en:'COST CONTROL', summary:'4场活动固定不减，总预算压至4.4万元；用巡回模组、内部执行与现场研究控制成本。',
     heads:['费用项','测算口径','预算（元）','控制原则'],
     rows:[
-      ['活动物料','10店基础套装＋4场周末活动＋2场开荤礼','18,000','模块化制作，跨活动复用'],
-      ['试吃与奖励产品','10店×2轮试吃＋挑战奖励与样品','12,000','按报名核销，避免大面积派样'],
-      ['门店执行','兼职支持、培训、4场活动基础执行','24,000','门店人员主导，外部执行只补关键场次'],
-      ['内容制作','摄影1天＋短视频3条＋页面/任务卡适配','15,000','使用现有品牌素材，集中一次拍摄'],
-      ['会员与数据','报名页、短信/社群触达、简版数据看板','8,000','先做轻量工具，不开发独立系统'],
-      ['消费者研究','活动访谈、问卷、复盘报告','6,000','与现场活动同步采集'],
-      ['物流与仓储','试点物料及产品分批配送','7,000','按周补货，降低积压'],
-      ['预备金','约10%的不可预见费用','9,600','须经双方项目负责人确认后使用'],
-      ['合计','90天 / 10家门店','99,600','未经确认不扩店、不扩制作'],
+      ['活动物料','一套可拆装巡回模组，4场流转；每场仅补消耗品','9,000','背景板、桌牌、价签及开荤礼道具重复使用'],
+      ['试吃与奖励产品','10店各一轮；重点5店活动当天加量','6,000','活动内试吃不减，收窄店门口泛派样'],
+      ['门店执行','我方业务员主盯＋育儿顾问主讲＋1名外部统筹','12,000','账面成本下降，但内部时间与差旅转为隐性投入'],
+      ['内容制作','前两场集中拍摄；半天摄影＋2条短视频＋模板页面','5,000','后两场复用素材，仅补手机镜头'],
+      ['会员与数据','复用现有小程序报名页；人工周报','3,000','不开发独立数据看板'],
+      ['消费者研究','问卷与深访并入4场活动现场','2,000','不单独组织研究场次'],
+      ['物流与仓储','随订单配送到店，借用门店临时存放','3,000','不设中转仓'],
+      ['预备金','不可预见费用','4,000','须经双方项目负责人确认后使用'],
+      ['合计','90天 / 10家门店 / 4场活动','44,000','较原9.96万元降低55,600元，降幅55.8%'],
+      ['执行备注','场次保持4场不变','—','单场规格从周末主题场降为常规门店小场；人数、搭建和外部人手同步降低，否则必然超支'],
     ]
   },
   {
-    name:'ROI测算表', icon:'03', en:'BASE CASE', summary:'以90天基准情景测算，先看项目直接回报，再看会员与企业商机的后续价值。',
-    heads:['收益来源','关键假设','90天GMV（元）','验证指标'],
+    name:'ROI测算表', icon:'03', en:'BASE CASE', summary:'统一99元单价，主ROI只计算门店零售与礼卡；企业订单作为连带商机单独核算。',
+    heads:['收益来源','关键假设','90天金额（元）','核算口径'],
     rows:[
-      ['门店增量零售','10店×90天×5盒/天×49.9元','224,550','日均增量盒数、活动前后同店对比'],
-      ['联合礼卡','300张×199元平均实付','59,700','售卡率、核销率、履约成本'],
-      ['企业订单','3家客户×30,000元首单','90,000','有效商机数、报价转订单率'],
-      ['合计GMV','三条收入线合计','374,250','不含自然销售，不重复归因'],
-      ['预计毛利','按综合毛利率30%测算','112,275','以双方实际产品与渠道毛利复核'],
-      ['项目投入','对应费用预算表','99,600','预算偏差≤10%'],
-      ['直接项目ROI','（预计毛利－投入）÷投入','12.7%','盈亏平衡GMV约33.2万元'],
+      ['门店增量零售','10店×90天×2.5盒/天×99元','222,750','零售毛利率按40%：毛利89,100元'],
+      ['联合礼卡','300张×196元','58,800','礼卡毛利率按30%：毛利17,640元'],
+      ['主项目GMV','门店零售＋联合礼卡','281,550','主ROI不计企业订单'],
+      ['企业订单（连带商机）','3家客户×30,000元','90,000','毛利率按25%；另行核算，不归因于4场活动'],
+      ['主项目毛利','89,100＋17,640','106,740','需按实际产品、渠道与履约成本复核'],
+      ['渠道与履约变动成本','为使ROI口径可复核的暂估项','22,260','含平台、兑换及履约相关变动费用；须用实际合同替换'],
+      ['新预算主ROI','（106,740－22,260－44,000）÷44,000','92.0%','投入减半、产出假设不变；不代表销量预期提高'],
+      ['旧版对照ROI','投入99,600元','约12%','沿用旧版统一毛利假设，仅作历史对照，不能与新口径直接比较'],
     ]
   }
 ];
@@ -150,7 +152,7 @@ export default function V2Marketing(){
       <div className="campaign-head" data-reveal><div><p className="eyebrow">ACTIVITY 05 / NUTRITION GIFTING</p><h2>一份好蛋，<br/>送给每一个<em>值得关心的人</em></h2></div><div className="campaign-meta"><span>家庭礼赠消费者、企业及团体客户</span><b>把营养送给你爱的人</b><small>圣迪乐牵头：杨明｜特渠</small></div></div>
       <div className="gift-mode" role="tablist" data-reveal><button type="button" className={giftMode===0?'active':''} onClick={()=>setGiftMode(0)}><Heart/>B2C 家庭礼赠</button><button type="button" className={giftMode===1?'active':''} onClick={()=>setGiftMode(1)}><Users/>B2B 企业关怀</button></div>
       <div className={`gift-v2-stage mode-${giftMode}`} data-reveal><div className="joint-card"><div className="joint-brand"><span className="egg-mark"><span/></span><b>圣迪乐 <i>×</i> 孩子王</b></div><small>{giftMode===0?'FAMILY NUTRITION GIFT':'ENTERPRISE FAMILY CARE'}</small><h3>{giftMode===0?b2cGifts[giftScene][0]:'企业家庭关怀卡'}</h3><p>{giftMode===0?b2cGifts[giftScene][1]:'让企业福利从一份实物，延伸到员工的家庭日常。'}</p><div className="joint-egg"><span>营养<br/>有蛋</span></div><b className="card-demo">联合蛋卡 · 概念演示</b></div><div className="gift-v2-copy"><span>{giftMode===0?'ROUTE A / PERSONAL GIFT':'ROUTE B / CORPORATE CARE'}</span><h3>{giftMode===0?'把营养与关心，送到家人身边':'让企业福利延伸到员工家庭'}</h3>{giftMode===0?<div className="gift-scenes">{b2cGifts.map((x,i)=><button type="button" className={giftScene===i?'active':''} onClick={()=>setGiftScene(i)} key={x[0]}>{x[0]}</button>)}</div>:<div className="b2b-scenes"><b>企业员工福利</b><b>工会采购</b><b>企业节庆礼赠</b><b>员工家庭关怀</b></div>}<div className="gift-use-flow"><span>购买礼卡</span><i>→</i><span>赠送／发放</span><i>→</i><span>收礼人领取</span><i>→</i><span>按规则兑换</span></div><small>不代表已上线卡券；面额、有效期、兑换区域、物流及履约规则待双方确认。</small></div></div>
-      {giftMode===1&&<div className="enterprise-logic" data-reveal><div className="enterprise-routes"><article><span>通路一</span><b>借孩子王的企业客户资源</b><p>借大企业员工福利与内购客户，礼盒、客户名单与履约通道双方协同。</p></article><article><span>通路二</span><b>圣迪乐自有企务客户</b><p>集采、一件代发、礼卡三种方式开放，孩子王亲子活动权益作为差异化加值。</p></article><article><span>通路三</span><b>异业联合，做联合提案</b><p>月子中心、儿童摄影、母婴品牌共同设计“刚生完孩子的人”精准场景。</p></article></div><div className="procurement-check"><span>采购一定会问的五个问题</span>{['能不能开发票、什么税点','多少起订、交货几天','临期或破损怎么退换','能不能印企业LOGO与祝福语','比超市贵多少、责任在哪里'].map((x,i)=><b key={x}><i>0{i+1}</i>{x}</b>)}<p>先把交付讲清楚，再进入采购清单。</p></div></div>}
+      {giftMode===1&&<div className="enterprise-board" data-reveal><div className="enterprise-board-title"><span>03 / 主线：企务客户</span><h3>企业客户这条路，回款比零售快，也比零售难</h3><p>零售靠消费者一时心动，企务客户靠采购清单逐条通过。前者慢、后者快，但后者要求把“交付”讲清楚。</p></div><div className="enterprise-logic"><div className="enterprise-routes"><article><span>通路一</span><b>借孩子王的企业客户资源</b><p>孩子王有大企业员工福利与内购客户。我们做礼盒，它出客户名单与履约通道，双方分成。这条最快，但需要孩子王商务端先点头。</p></article><article><span>通路二</span><b>圣迪乐自有企业客户</b><p>现有礼品卡渠道与集采客户，开放集采、一件代发、礼卡三种方式；孩子王亲子活动权益作为加值。</p></article><article><span>通路三</span><b>异业联合，做联合提案</b><p>月子中心、儿童摄影、母婴品牌都在找“刚生完孩子的人”，联合提案比单打独斗更容易进入企业采购会。</p></article></div><div className="procurement-check"><span>采购一定会问的五个问题</span>{['能不能开发票、什么税点','多少起订、交货几天','临期或破损怎么退换','能不能印企业LOGO与祝福语','比超市贵多少、责任在哪里'].map((x,i)=><b key={x}><i>0{i+1}</i>{x}</b>)}<p>这五个问题答不上来，方案再漂亮也进不了采购清单。</p><small>建议提前准备一页“交付说明”，和市场方案分开，专门给采购看。</small></div></div><div className="enterprise-bottom"><b>企业客户不谈感情，只谈交付：发票、账期、履约、退换，一个都不能含糊。</b><span>企务客户决策周期通常在3—6周，关键节庆报价与样品应提前约1个月送到采购手上。</span></div></div>}
       <div className="campaign-value" data-reveal><span>孩子王合作价值</span><div><b>节庆销售</b><b>礼卡产品</b><b>企业客户开发</b><b>家庭消费场景延伸</b></div></div>
     </section>
 
@@ -160,7 +162,7 @@ export default function V2Marketing(){
       <div className="plan-guardrails" data-reveal><b>成本控制线</b><span>先10店后扩张</span><span>先复用再制作</span><span>按报名核销派样</span><span>预算偏差≤10%</span><span>每4周设置止损复盘</span></div>
       <p className="plan-note" data-reveal>测算为可落地的90天试点管理模型，价格、毛利、税率与企业订单须由双方财务及业务负责人按实际合同复核；不作为已发生业绩或收益承诺。</p>
     </section>
-    {planOpen!==null&&<div className="v2-modal plan-modal" role="dialog" aria-modal="true" aria-label={planTables[planOpen].name} onClick={()=>setPlanOpen(null)}><article className="plan-sheet" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setPlanOpen(null)} aria-label="关闭">×</button><div className="plan-sheet-head"><span>{planTables[planOpen].en}</span><h3>{planTables[planOpen].name}</h3><p>{planTables[planOpen].summary}</p></div><div className="plan-table-wrap"><table><thead><tr>{planTables[planOpen].heads.map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{planTables[planOpen].rows.map((row,i)=><tr key={i}>{row.map((x,j)=><td key={j}>{x}</td>)}</tr>)}</tbody></table></div><div className="plan-sheet-foot"><span>BASELINE</span><b>{planOpen===0?'12周完成一次可复盘的闭环':planOpen===1?'试点总预算 ¥99,600': '基准情景直接项目ROI 12.7%'}</b><small>所有口径以双方最终审核及实际执行数据为准</small></div></article></div>}
+    {planOpen!==null&&<div className="v2-modal plan-modal" role="dialog" aria-modal="true" aria-label={planTables[planOpen].name} onClick={()=>setPlanOpen(null)}><article className="plan-sheet" onClick={e=>e.stopPropagation()}><button className="modal-close" onClick={()=>setPlanOpen(null)} aria-label="关闭">×</button><div className="plan-sheet-head"><span>{planTables[planOpen].en}</span><h3>{planTables[planOpen].name}</h3><p>{planTables[planOpen].summary}</p></div><div className="plan-table-wrap"><table><thead><tr>{planTables[planOpen].heads.map(x=><th key={x}>{x}</th>)}</tr></thead><tbody>{planTables[planOpen].rows.map((row,i)=><tr key={i}>{row.map((x,j)=><td key={j}>{x}</td>)}</tr>)}</tbody></table></div><div className="plan-sheet-foot"><span>BASELINE</span><b>{planOpen===0?'12周完成一次可复盘的闭环':planOpen===1?'试点总预算 ¥44,000': '新预算主ROI约92%｜企业商机另算'}</b><small>所有口径以双方最终审核及实际执行数据为准</small></div></article></div>}
 
     <section id="vision" className="vision-section">
       <div className="vision-orbit orbit-a"/><div className="vision-orbit orbit-b"/>

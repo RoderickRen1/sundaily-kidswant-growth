@@ -9,6 +9,8 @@ import '../../app/partnership.css';
 import '../../app/v2-marketing.css';
 import '../../app/v2-anchor.css';
 import '../../app/v3-refinement.css';
+import '../../app/v4-corrections.css';
+import '../../app/v4-order.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
