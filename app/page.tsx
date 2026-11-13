@@ -50,22 +50,24 @@ const strengthProducts = [
   {
     name: 'OMEGA-3营养蛋',
     en: 'OMEGA-3 NUTRITION',
-    image: 'assets/source/product-omega3.png',
+    image: 'assets/source/product-omega3-ppt.jpg',
     proof: '相当于普通鸡蛋 2倍 OMEGA-3',
     desc: '以谷物、亚麻籽科学喂养，同时提供DHA、α-亚麻酸、维生素A与维生素E。',
     tags: ['超级谷物亚麻籽喂养', 'OMEGA-3行业标准参与制定'],
     fit: '覆盖孩子和父母的家庭早餐需求，适合做全家营养内容、7天早餐实验与周期复购。',
-    specs: ['4枚体验装', '20枚家庭装', '30枚周期装'],
+    specs: ['20枚家庭装', '30枚周期装'],
+    giftCards: ['月卡', '季卡', '年卡'],
   },
   {
     name: '儿童超级营养蛋',
     en: 'FOR GROWING KIDS',
-    image: 'assets/source/product-kids.jpg',
+    image: 'assets/source/product-kids-ppt.jpg',
     proof: '2倍 OMEGA-3，宝宝更爱吃',
     desc: '围绕儿童早餐场景设计的专属营养蛋，让产品价值更容易被孩子王家庭理解。',
     tags: ['博士爸妈专研配方', '发明专利配方'],
     fit: '产品人群与孩子王核心家庭高度一致，可直接连接儿童营养咨询、亲子活动与会员内容。',
     specs: ['4枚体验装', '20枚家庭装', '30枚周期装'],
+    giftCards: [],
   },
 ];
 
@@ -139,13 +141,13 @@ export default function Home() {
         <a href="#strength" className="nav-cta">品牌实力</a>
       </nav>
       <section id="top" className="hero">
-        <img className="hero-image" src="assets/source/sdl-family.png" alt="圣迪乐家庭早餐品牌场景" />
+        <img className="hero-image" src="assets/source/hero-growth-family-ppt.jpg" alt="圣迪乐陪伴家庭成长的品牌场景" />
         <div className="hero-shade" /><div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
         <div className="hero-content">
-          <div className="hero-kicker"><Sparkles size={15} /> 家庭营养成长计划</div>
+          <div className="hero-kicker"><Sparkles size={15} /> 家庭营养成长陪伴计划</div>
           <h1><span>营养有蛋</span><br />成长有伴</h1>
           <p className="hero-en">BORN TO SHINE, GROW TOGETHER.</p>
-          <p className="hero-note">圣迪乐 × 孩子王战略合作创意提案</p>
+          <p className="hero-note">从一枚营养蛋出发，陪伴孩子每一个成长阶段</p>
           <div className="hero-concept" aria-label="核心合作概念">
             <div className="concept-summary">
               <span>CORE COLLABORATION CONCEPT</span>
@@ -181,11 +183,12 @@ export default function Home() {
             <span className="proof-icon"><ShieldCheck /></span>
             <div><small>SOURCE CONTROL</small><b><strong>2250</strong>万羽自有养殖规模</b><p>全国9省22个蛋鸡基地，覆盖蛋鸡、食粮、养殖、生产、供应链与销售，承诺不外采一枚蛋。</p></div>
           </article>
-          <article className="strength-proof proof-control">
-            <span className="proof-icon"><Sparkles /></span><small>SDL STANDARD</small>
-            <b><strong>105820</strong><i>枚全球鸡蛋验证</i></b>
-            <p>经过232轮实验，建立高于日本、美国、欧盟、澳大利亚等40余项标准的SDL体系。</p>
-            <div className="control-rings"><i /><i /><i /></div>
+          <article className="strength-proof proof-partners">
+            <img src="assets/source/partner-brand-wall-ppt.jpg" alt="圣迪乐已合作客户与品牌墙" />
+            <div className="partner-wall-shade" />
+            <small>TRUSTED BY LEADING BRANDS</small>
+            <b>全球优质客户的选择</b>
+            <p>连锁餐饮 · 500强企业 · 五星级酒店 · 国际峰会 · 网红餐厅</p>
           </article>
           <article className="strength-proof proof-research">
             <img src="assets/source/sundaily-scientist.jpg" alt="圣迪乐营养科研专家" />
@@ -209,6 +212,7 @@ export default function Home() {
             <p>{strengthProducts[strengthProduct].desc}</p>
             <div>{strengthProducts[strengthProduct].tags.map(tag=><i key={tag}>{tag}</i>)}</div>
             <div className="product-specs"><span>规格选择</span>{strengthProducts[strengthProduct].specs.map(spec=><b key={spec}>{spec}</b>)}</div>
+            {strengthProducts[strengthProduct].giftCards.length>0&&<div className="product-gift-cards"><span>礼卡选择</span>{strengthProducts[strengthProduct].giftCards.map(card=><b key={card}>{card}</b>)}</div>}
             <div className="product-fit"><span>为什么适合孩子王</span><p>{strengthProducts[strengthProduct].fit}</p></div>
             <nav aria-label="切换产品">{strengthProducts.map((product,index)=><button type="button" key={product.name} className={strengthProduct===index?'active':''} onClick={()=>setStrengthProduct(index)}><span>0{index+1}</span>{product.en}</button>)}</nav>
           </div>
@@ -223,25 +227,38 @@ export default function Home() {
       <section id="resources" className="section fit-section">
         <div className="fit-heading" data-reveal>
           <p className="eyebrow">资源互补 · WHY US, WHY TOGETHER</p>
-          <h2>一个拥有家庭入口，<br />一个交付<em>营养解决方案</em></h2>
-          <p>孩子王连接中国成长家庭，圣迪乐把高品质鸡蛋转化为商品、内容与体验。双方合作可以从一次购买开始，持续经营早餐场景。</p>
+          <h2>一个正在从「育儿」走向「育家」，<br />一个能把<em>营养与品质</em>做深</h2>
+          <p>孩子王拥有高频家庭入口与服务场景，圣迪乐提供有明确营养差异化的产品、可验证的生产体系与可延展的亲子内容。两者的契合点，是共同服务家庭的整个成长过程。</p>
+        </div>
+        <div className="fit-signal-stage" data-reveal>
+          <figure className="fit-market-proof">
+            <img src="assets/source/kidswant-opportunity-data.jpg" alt="孩子王用户、会员、育儿顾问与门店资源数据" />
+            <figcaption><span>MARKET PROOF</span><b>孩子王缺的不是流量，是高频刚需的入口</b><p>图片与数据口径来自你提供的孩子王2026年企业品牌资料截图。</p></figcaption>
+          </figure>
+          <div className="fit-signals">
+            <article><span>SIGNAL 01</span><b>孩子王正在从「育儿」走向「育家」</b><p>服务对象从孩子的单点需求，向整个家庭的生活与关系经营延展。</p></article>
+            <article><span>SIGNAL 02</span><b>孩子王已经把「全家营养馆」放进新门店业态</b><p>家庭营养不再是一句概念，而是已经出现在线下场景中、需要合适商品与内容的真实入口。</p></article>
+          </div>
+        </div>
+        <div className="fit-metrics" data-reveal>
+          <div><b>9800万+</b><span>累计用户</span></div><div><b>98%+</b><span>会员订单占比</span></div><div><b>8000+</b><span>持证育儿顾问</span></div><div><b>近1500家</b><span>孩子王 & 乐友门店</span></div>
         </div>
         <div className="fit-ecosystem" data-reveal>
           <article className="fit-side fit-kw">
-            <div className="fit-side-head"><span>01 / FAMILY ACCESS</span><h3>孩子王的核心资源</h3><p>已经建立的家庭关系与服务场景</p></div>
-            <div className="fit-resource-list"><div><i>01</i><b>母婴童家庭会员</b><p>覆盖孕产、婴幼儿与成长家庭的长期用户关系</p></div><div><i>02</i><b>门店与全渠道触点</b><p>商品陈列、顾问服务、社群与线上商城协同</p></div><div><i>03</i><b>亲子服务能力</b><p>活动组织、育儿内容与家庭消费场景运营</p></div><div><i>04</i><b>企业与礼赠场景</b><p>员工福利、节庆礼赠和家庭关怀需求</p></div></div>
+            <div className="fit-side-head"><span>01 / FAMILY ACCESS</span><h3>孩子王的核心资源</h3><p>从家庭触达、专业服务到新业态的组合入口</p></div>
+            <div className="fit-resource-list"><div><i>01</i><b>高规模家庭会员关系</b><p>9800万+累计用户，会员订单占比98%+，具备持续经营家庭需求的基础。</p></div><div><i>02</i><b>专业育儿顾问网络</b><p>8000+持证育儿顾问，可以把商品信息转化为家庭听得懂、愿意信任的营养话题。</p></div><div><i>03</i><b>门店与全渠道触点</b><p>近1500家孩子王与乐友门店，可承接陈列、体验、社群与线上复购。</p></div><div><i>04</i><b>「育家」与「全家营养馆」新场景</b><p>为能够天天卖、带人进店、还能讲出营养故事的新品类提供了进场空间。</p></div></div>
           </article>
           <div className="fit-center"><span className="fit-egg">0—12</span><small>共同服务对象</small><b>正在为孩子成长<br />做选择的家庭</b><i>×</i></div>
           <article className="fit-side fit-sdl">
             <div className="fit-side-head"><span>02 / NUTRITION ENGINE</span><h3>圣迪乐可投入的资源</h3><p>可以持续运营的产品与品质内容</p></div>
-            <div className="fit-resource-list"><div><i>01</i><b>双产品与三种规格</b><p>OMEGA-3、儿童营养蛋；4枚、20枚、30枚承接不同场景</p></div><div><i>02</i><b>可验证的品质体系</b><p>全产业链、SDL标准、长期国抽结果与航天合作资产</p></div><div><i>03</i><b>科研与内容能力</b><p>国家重点研发项目、行业标准与儿童营养内容</p></div><div><i>04</i><b>体验与履约资源</b><p>生产基地、研学内容、全国供应与企业礼赠能力</p></div></div>
+            <div className="fit-resource-list"><div><i>01</i><b>有明确营养差异化的产品</b><p>OMEGA-3营养蛋与儿童超级营养蛋，可分别承接全家营养与儿童成长需求。</p></div><div><i>02</i><b>能够支撑高品质商品定位的生产体系</b><p>全产业链、SDL标准、品质检测与规模化基地，让高品质定位有可验证的支撑。</p></div><div><i>03</i><b>科研与产品开发能力</b><p>国家重点研发项目、行业标准与产品研发积累，可以持续支撑专业内容与新品合作。</p></div><div><i>04</i><b>真实生产基地可以成为亲子研学内容</b><p>把看不见的品质管理转化为孩子和家长可观察、可理解、可记忆的成长体验。</p></div><div><i>05</i><b>「中国航天事业合作伙伴」Title的潜在影响力</b><p>为亲子科学探索、营养主题活动与品牌传播提供具有识别度的内容资产。</p></div></div>
           </article>
         </div>
         <div className="fit-reasons" data-reveal>
           <div className="fit-reason-title"><span>03 / WHY SUNDaily</span><h3>孩子王为什么选择圣迪乐</h3><p>合作对象需要同时满足四个条件，才能把一次上架变成长期家庭经营。</p></div>
-          <div className="fit-reason-grid"><article><span>高频刚需</span><b>早餐每天发生</b><p>鸡蛋具有高频、易理解、可持续复购的天然优势。</p></article><article><span>人群精准</span><b>儿童与家庭高度匹配</b><p>两款核心产品直接回应孩子王家庭的早餐营养需求。</p></article><article><span>证据充分</span><b>品质内容经得起验证</b><p>标准、专利、全产业链和长期抽检结果支撑专业表达。</p></article><article><span>合作够深</span><b>商品之外还有内容与体验</b><p>可延展至会员、亲子活动、航天主题、基地研学与礼赠。</p></article></div>
+          <div className="fit-reason-grid"><article><span>高频刚需</span><b>鸡蛋是全家天天都吃的品类</b><p>高频、客单低、复购高，补足孩子王需要的日常刚需入口。</p></article><article><span>业态契合</span><b>与「育家」和「全家营养馆」同向</b><p>产品不只服务儿童，也能回应父母与整个家庭的日常营养需求。</p></article><article><span>证据充分</span><b>品质内容经得起验证</b><p>科研、标准、全产业链与品质结果支撑高品质商品表达。</p></article><article><span>合作够深</span><b>一个品类能长出多条体验线</b><p>商品、会员、亲子活动、航天主题、基地研学与礼赠可以被同一套成长逻辑连接。</p></article></div>
         </div>
-        <div className="fit-answer" data-reveal><span>合作结论</span><b>圣迪乐可以同时交付产品、专业内容、体验项目与稳定履约，帮助孩子王把“卖鸡蛋”升级为“经营家庭早餐”。</b><a href="#opportunity">查看合作机会 ↘</a></div>
+        <div className="fit-answer" data-reveal><span>合作结论</span><b>孩子王提供家庭入口与服务场景，圣迪乐提供差异化产品、品质体系、科研内容与真实体验：双方共同把一枚蛋做成贯穿家庭成长的长期营养入口。</b><a href="#opportunity">查看合作机会 ↘</a></div>
       </section>
       <section id="opportunity" className="section opportunity">
         <div className="section-index">02 / OPPORTUNITY</div>
