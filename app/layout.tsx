@@ -10,6 +10,8 @@ import './v2-anchor.css';
 import './v3-refinement.css';
 import './v4-corrections.css';
 import './v4-order.css';
+import './v5-visibility.css';
+import './v6-brand-clarity.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

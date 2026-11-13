@@ -94,7 +94,7 @@ export default function V2Marketing(){
   const [rewardOpen,setRewardOpen]=useState(false);
   const [journey,setJourney]=useState(0);
   const [member,setMember]=useState(0);
-  const [giftMode,setGiftMode]=useState(0);
+  const [giftMode,setGiftMode]=useState(1);
   const [giftScene,setGiftScene]=useState(0);
   const [planOpen,setPlanOpen]=useState<number|null>(null);
 
