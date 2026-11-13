@@ -6,6 +6,8 @@ import '../../app/proposal.css';
 import '../../app/hero-refinement.css';
 import '../../app/strength.css';
 import '../../app/partnership.css';
+import '../../app/v2-marketing.css';
+import '../../app/v2-anchor.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
