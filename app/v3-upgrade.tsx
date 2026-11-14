@@ -35,7 +35,7 @@ export function V3Overview(){
   return <section id="opportunity-v3" className="section v3-overview">
     <div className="v3-title" data-reveal><div><p className="eyebrow">PART 02 / AUDIENCE × CAMPAIGN LOGIC</p><h2>从宝宝第一口，<br/>到全家<em>每一天</em></h2></div><p>围绕四大成长阶段，设计五大营销场景，让营养消费融入家庭成长的每一个重要时刻。</p></div>
     <p className="v3-lead" data-reveal>孩子王连接不同成长阶段的家庭，圣迪乐通过产品、活动和礼卡，为这些家庭提供不同的营养消费与成长体验。</p>
-    <div className="audience-guide"><span>01 / 选择家庭客群</span><b>点击家庭客群，查看适合的联合营销活动 ↓</b></div>
+    <div className="interaction-guide"><strong>点击下方四类家庭客群</strong>，需求、活动矩阵与消费者利益会同步切换<span>INTERACTIVE</span></div><div className="audience-guide"><span>01 / 选择家庭客群</span><b>点击家庭客群，查看适合的联合营销活动 ↓</b></div>
     <div className="audience-cards" role="tablist" data-reveal>{audiences.map((a,i)=><button key={a.age} type="button" role="tab" aria-selected={selected===i} className={selected===i?'active':''} onClick={()=>setSelected(i)}><small>0{i+1} / {a.key}</small><strong>{a.age}</strong><span>{a.words}</span><em>查看详情 <ArrowRight size={14}/></em></button>)}</div>
     <div className="audience-detail" data-reveal><div><small>核心需求</small>{audiences[selected].needs.map(x=><p key={x}><Check size={14}/>{x}</p>)}</div><div><small>合作切入</small>{audiences[selected].entries.map(x=><b key={x}>{x}</b>)}</div><div className="audience-benefit"><small>消费者利益</small><strong>{audiences[selected].benefit}</strong><span>产品实际食用应依据年龄、辅食添加情况及食品安全要求。</span></div></div>
     <div className="matrix-head"><div><span>02 / 五大活动覆盖矩阵</span><b>当前高亮：{audiences[selected].age}</b></div><small>点击活动名称，直接进入活动详情</small></div>
