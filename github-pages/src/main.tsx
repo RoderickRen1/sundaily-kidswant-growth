@@ -13,6 +13,7 @@ import '../../app/v4-corrections.css';
 import '../../app/v4-order.css';
 import '../../app/v5-visibility.css';
 import '../../app/v6-brand-clarity.css';
+import '../../app/v7-upgrade.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

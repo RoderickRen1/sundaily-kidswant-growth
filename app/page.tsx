@@ -3,6 +3,7 @@
 import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import V2Marketing from './v2-marketing';
+import { ProductGiftCards } from './v3-upgrade';
 
 const insightDetails = [
   {
@@ -215,7 +216,7 @@ export default function Home() {
             <p>{strengthProducts[strengthProduct].desc}</p>
             <div>{strengthProducts[strengthProduct].tags.map(tag=><i key={tag}>{tag}</i>)}</div>
             <div className="product-specs"><span>规格选择</span>{strengthProducts[strengthProduct].specs.map(spec=><b key={spec}>{spec}</b>)}</div>
-            {strengthProducts[strengthProduct].giftCards.length>0&&<div className="product-gift-cards"><span>礼卡选择</span>{strengthProducts[strengthProduct].giftCards.map(card=><b key={card}>{card}</b>)}</div>}
+            {strengthProducts[strengthProduct].giftCards.length>0&&<ProductGiftCards />}
             <div className="product-fit"><span>为什么适合孩子王</span><p>{strengthProducts[strengthProduct].fit}</p></div>
             <nav aria-label="切换产品">{strengthProducts.map((product,index)=><button type="button" key={product.name} className={strengthProduct===index?'active':''} onClick={()=>setStrengthProduct(index)}><span>0{index+1}</span>{product.en}</button>)}</nav>
           </div>

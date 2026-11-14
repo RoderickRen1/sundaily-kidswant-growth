@@ -2,6 +2,7 @@
 
 import { ArrowRight, CalendarDays, Check, ChevronRight, Gift, Heart, QrCode, Rocket, ShieldCheck, Sparkles, Store, Users, WalletCards } from 'lucide-react';
 import { useState } from 'react';
+import { V3Gifting, V3Overview } from './v3-upgrade';
 
 const activities = [
   {step:'第一口',name:'宝宝开荤礼',audience:'0.5—3岁宝宝家庭',idea:'把人生第一枚好蛋，做成值得记住的成长仪式。',benefit:'一次有仪式感的家庭成长纪念',kw:'到店客流·礼盒销售·会员互动',owner:'宣明海｜战区',href:'#first-bite'},
@@ -100,6 +101,7 @@ export default function V2Marketing(){
 
   return <>
     <span id="opportunity" className="v2-anchor-alias" aria-hidden="true" />
+    <V3Overview />
     <section id="campaigns" className="section v2-overview">
       <div className="v2-heading" data-reveal><div><p className="eyebrow">PART 02 / FIVE JOINT CAMPAIGNS</p><h2>从宝宝第一口，<br/>到全家<em>每一天</em></h2></div><p>五大联合营销活动，连接成长仪式、日常营养、亲子体验、会员经营与家庭关怀。</p></div>
       <div className="growth-path" data-reveal>{activities.map((item,i)=><button type="button" className={activity===i?'active':''} onClick={()=>setActivity(i)} key={item.name}><span>0{i+1}</span><i/><b>{item.step}</b><small>{item.name}</small></button>)}</div>
@@ -148,7 +150,8 @@ export default function V2Marketing(){
       <div className="campaign-value dark" data-reveal><span>孩子王合作价值</span><div><b>会员活跃</b><b>持续复购</b><b>家庭内容服务</b><b>长期用户关系</b></div></div>
     </section>
 
-    <section id="gifting-v2" className="section v2-gifting">
+    <V3Gifting />
+    <section id="gifting-legacy" className="section v2-gifting">
       <div className="campaign-head" data-reveal><div><p className="eyebrow">ACTIVITY 05 / NUTRITION GIFTING</p><h2>一份好蛋，<br/>送给每一个<em>值得关心的人</em></h2></div><div className="campaign-meta"><span>家庭礼赠消费者、企业及团体客户</span><b>把营养送给你爱的人</b><small>圣迪乐牵头：杨明｜特渠</small></div></div>
       <div className="gift-mode" role="tablist" data-reveal><button type="button" className={giftMode===0?'active':''} onClick={()=>setGiftMode(0)}><Heart/>B2C 家庭礼赠</button><button type="button" className={giftMode===1?'active':''} onClick={()=>setGiftMode(1)}><Users/>B2B 企业关怀</button></div>
       <div className={`gift-v2-stage mode-${giftMode}`} data-reveal><div className="joint-card"><div className="joint-brand"><span className="egg-mark"><span/></span><b>圣迪乐 <i>×</i> 孩子王</b></div><small>{giftMode===0?'FAMILY NUTRITION GIFT':'ENTERPRISE FAMILY CARE'}</small><h3>{giftMode===0?b2cGifts[giftScene][0]:'企业家庭关怀卡'}</h3><p>{giftMode===0?b2cGifts[giftScene][1]:'让企业福利从一份实物，延伸到员工的家庭日常。'}</p><div className="joint-egg"><span>营养<br/>有蛋</span></div><b className="card-demo">联合蛋卡 · 概念演示</b></div><div className="gift-v2-copy"><span>{giftMode===0?'ROUTE A / PERSONAL GIFT':'ROUTE B / CORPORATE CARE'}</span><h3>{giftMode===0?'把营养与关心，送到家人身边':'让企业福利延伸到员工家庭'}</h3>{giftMode===0?<div className="gift-scenes">{b2cGifts.map((x,i)=><button type="button" className={giftScene===i?'active':''} onClick={()=>setGiftScene(i)} key={x[0]}>{x[0]}</button>)}</div>:<div className="b2b-scenes"><b>企业员工福利</b><b>工会采购</b><b>企业节庆礼赠</b><b>员工家庭关怀</b></div>}<div className="gift-use-flow"><span>购买礼卡</span><i>→</i><span>赠送／发放</span><i>→</i><span>收礼人领取</span><i>→</i><span>按规则兑换</span></div><small>不代表已上线卡券；面额、有效期、兑换区域、物流及履约规则待双方确认。</small></div></div>
