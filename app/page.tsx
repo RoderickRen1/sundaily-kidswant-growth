@@ -4,6 +4,7 @@ import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHan
 import { useEffect, useState } from 'react';
 import V2Marketing from './v2-marketing';
 import { ProductGiftCards } from './v3-upgrade';
+import GrowthOpportunityPage from './growth-opportunity';
 
 const insightDetails = [
   {
@@ -229,6 +230,7 @@ export default function Home() {
         <p className="strength-source">＊页面信息与数据来源：《圣迪乐企业简介（2026）》；产品信息与合作表述以实际包装及双方最终审核口径为准。</p>
       </section>
       <section id="resources" className="section fit-section">
+        <GrowthOpportunityPage />
         <div className="fit-heading" data-reveal>
           <p className="eyebrow">WE STUDIED KIDSWANT / 商业机会洞察</p>
           <h2>我们先读懂孩子王，<br />再提出<em>合作答案</em></h2>
