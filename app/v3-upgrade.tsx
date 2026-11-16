@@ -4,7 +4,7 @@ import { ArrowRight, Check, Gift, Heart, Maximize2, Store, Users, X } from 'luci
 import { useEffect, useState } from 'react';
 
 const audiences = [
-  {age:'孕产家庭',key:'MATERNITY',words:'品质 · 家庭营养 · 孕产关怀',needs:['关注日常食材品质','重视家庭营养搭配','存在家庭关怀与礼赠需求'],entries:['Omega-3营养蛋','家庭营养礼卡','孕产家庭礼赠','开荤礼提前触达'],benefit:'为孕产家庭提供日常营养食材选择与家庭关怀礼赠方案。',active:[0,3,4]},
+  {age:'孕产家庭',key:'MATERNITY',words:'品质 · 家庭营养 · 孕产关怀',needs:['关注日常食材品质','重视家庭营养搭配','存在家庭关怀与礼赠需求'],entries:['Omega-3营养蛋','家庭营养礼卡','孕产家庭礼赠','开荤礼提前触达'],benefit:'为孕产家庭提供日常营养食材选择与家庭关怀礼赠方案。',active:[0,2,4]},
   {age:'0—3岁',key:'FIRST YEARS',words:'成长仪式 · 辅食探索 · 食品品质',needs:['关注宝宝成长节点','重视辅食添加和食品品质','愿意记录与分享成长'],entries:['宝宝开荤礼','成长纪念礼盒','家庭营养礼卡','会员成长内容'],benefit:'为宝宝的重要成长时刻留下有温度的家庭记忆。',active:[0,2,3,4]},
   {age:'4—6岁',key:'EARLY CHILDHOOD',words:'饮食习惯 · 亲子参与 · 趣味体验',needs:['希望孩子参与早餐','需要简单实用的搭配','喜欢互动亲子活动'],entries:['7天早餐实验室','花式鸡蛋食谱','家庭营养会员内容','品质溯源亲子体验'],benefit:'让早餐更有趣，让孩子愿意参与，让家长获得实用灵感。',active:[1,2,3,4]},
   {age:'7—12岁',key:'GROWING YEARS',words:'自主探索 · 营养知识 · 成长体验',needs:['关注家庭日常营养','重视孩子自主参与','关注研学与知识探索'],entries:['7天早餐实验室','品质溯源与航天研学','家庭营养礼卡','会员持续运营'],benefit:'让孩子从日常饮食出发，参与有知识、有体验的成长活动。',active:[1,2,3,4]},
@@ -13,8 +13,8 @@ const audiences = [
 const campaignMatrix = [
   ['宝宝开荤礼','延伸触达','核心','—','—','#first-bite'],
   ['7天早餐实验室','—','—','核心','核心','#breakfast-challenge'],
-  ['品质溯源与航天研学','—','延伸','核心','核心','#family-journey'],
   ['家庭营养会员运营','核心','核心','核心','核心','#membership'],
+  ['品质溯源与航天研学','—','延伸','核心','核心','#family-journey'],
   ['营养礼赠与联合礼卡','核心','核心','核心','核心','#gifting-v3'],
 ];
 

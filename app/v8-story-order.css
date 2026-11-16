@@ -1,0 +1,37 @@
+/* V4 narrative sequence: understand Kidswant first, prove Sundaily second. */
+main{display:flex;flex-direction:column}
+main>.hero{order:1}
+main>.fit-section{order:2}
+main>.strength-section{order:3}
+main>.v3-overview{order:4}
+main>.ceremony-section{order:5}
+main>.challenge-section{order:6}
+main>.member-section{order:7}
+main>.v2-journey{order:8}
+main>.gifting-v3{order:9}
+main>.business-plan{order:10}
+main>.vision-section{order:11}
+
+.hero-v4-title{max-width:1100px;font-size:clamp(54px,7vw,108px)!important;line-height:1.02!important;letter-spacing:-.055em!important}
+.hero-v4-title em{color:#ff7a3b;font-style:normal}
+.hero-v4-promise{max-width:1120px;margin:34px 0 0;font-size:clamp(25px,3.1vw,48px);line-height:1.45;font-weight:750;letter-spacing:-.035em}
+.hero-v4-promise strong{display:block;color:#ff9b66;font-weight:750}
+.hero-v4-note{max-width:1120px!important;margin:28px 0 0!important;color:#e2d7d0!important;font-size:clamp(15px,1.35vw,21px)!important;line-height:1.72!important;letter-spacing:0!important}
+.hero-v4-title+.hero-v4-promise+.hero-v4-note+.hero-en{margin-top:22px;color:#b8aaa2;font-size:14px;letter-spacing:.13em}
+.hero-content{max-width:1180px}
+.hero-concept{margin-top:26px}
+
+.fit-heading:before{content:"01 / UNDERSTAND KIDSWANT";display:block;margin-bottom:26px;color:#f45112;font-size:10px;font-weight:800;letter-spacing:.2em}
+.fit-reasons{position:relative}
+.fit-reasons:before{content:"从商业机会 → 到合作资格";position:absolute;right:0;top:-30px;color:#f45112;font-size:10px;font-weight:800;letter-spacing:.12em}
+.fit-reason-grid article{position:relative;overflow:hidden}
+.fit-reason-grid article:after{content:"0" counter(reason);position:absolute;right:14px;bottom:-18px;color:rgba(244,81,18,.09);font-size:86px;font-weight:900}
+.fit-reason-grid{counter-reset:reason}.fit-reason-grid article{counter-increment:reason}
+
+@media(max-width:800px){
+  .hero-v4-title{font-size:14vw!important}
+  .hero-v4-promise{font-size:7vw;margin-top:25px}
+  .hero-v4-note{font-size:14px!important;max-width:94%!important}
+  .hero-concept{display:none}
+  .fit-reasons:before{position:static;display:block;margin-bottom:14px}
+}

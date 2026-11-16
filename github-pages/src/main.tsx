@@ -14,6 +14,7 @@ import '../../app/v4-order.css';
 import '../../app/v5-visibility.css';
 import '../../app/v6-brand-clarity.css';
 import '../../app/v7-upgrade.css';
+import '../../app/v8-story-order.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

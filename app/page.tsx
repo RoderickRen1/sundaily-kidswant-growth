@@ -140,17 +140,17 @@ export default function Home() {
     <main>
       <nav className="site-nav">
         <a href="#top" className="brand-lockup" aria-label="返回首页"><span className="official-egg"><img src="assets/source/sundaily-logo-white.png" alt="圣迪乐" /></span><span>圣迪乐 <b>×</b> KW 孩子王</span></a>
-        <a href="#strength" className="nav-cta">品牌实力</a>
+        <a href="#resources" className="nav-cta">合作机会</a>
       </nav>
       <section id="top" className="hero">
         <img className="hero-image" src="assets/source/hero-growth-family-ppt.jpg" alt="圣迪乐陪伴家庭成长的品牌场景" />
         <div className="hero-shade" /><div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
         <div className="hero-content">
-          <div className="hero-kicker"><Sparkles size={15} /> 家庭营养成长陪伴计划</div>
-          <h1><span>营养有蛋</span><br />成长有伴</h1>
-          <p className="hero-en">BORN TO SHINE, GROW TOGETHER.</p>
-          <p className="hero-sundaily"><span>SUNDaily is</span> the Good Egg for Growing Families.</p>
-          <p className="hero-note">从一枚营养蛋出发，陪伴孩子每一个成长阶段</p>
+          <div className="hero-kicker"><Sparkles size={15} /> SUNDaily × KIDSWANT · 2027 PARTNERSHIP</div>
+          <h1 className="hero-v4-title">营养有蛋，<em>成长有伴。</em></h1>
+          <p className="hero-v4-promise">带来一枚好蛋，<strong>打开一个家庭营养的新增长场。</strong></p>
+          <p className="hero-note hero-v4-note">以有品质的营养产品为起点，将家庭早餐、亲子成长、会员服务与营养礼赠串联成新的消费机会，与孩子王共同拓展家庭营养的增长空间。</p>
+          <p className="hero-en">A GOOD EGG. A NEW GROWTH STORY.</p>
           <div className="hero-concept" aria-label="核心合作概念">
             <div className="concept-summary">
               <span>CORE COLLABORATION CONCEPT</span>
@@ -164,7 +164,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <a href="#strength" className="scroll-cue" aria-label="向下浏览"><span>SCROLL TO EXPLORE</span><ArrowDown size={18} /></a>
+        <a href="#resources" className="scroll-cue" aria-label="向下浏览"><span>SCROLL TO EXPLORE</span><ArrowDown size={18} /></a>
       </section>
       <section id="strength" className="section strength-section">
         <div className="strength-aura aura-one" /><div className="strength-aura aura-two" />
@@ -230,14 +230,14 @@ export default function Home() {
       </section>
       <section id="resources" className="section fit-section">
         <div className="fit-heading" data-reveal>
-          <p className="eyebrow">资源互补 · WHY US, WHY TOGETHER</p>
-          <h2>一个正在从「育儿」走向「育家」，<br />一个能把<em>营养与品质</em>做深</h2>
-          <p>孩子王拥有高频家庭入口与服务场景，圣迪乐提供有明确营养差异化的产品、可验证的生产体系与可延展的亲子内容。两者的契合点，是共同服务家庭的整个成长过程。</p>
+          <p className="eyebrow">WE STUDIED KIDSWANT / 商业机会洞察</p>
+          <h2>我们先读懂孩子王，<br />再提出<em>合作答案</em></h2>
+          <p>孩子王已经拥有用户、顾问、门店与数字化会员经营能力。真正的机会不是再增加一个普通商品，而是找到一个能进入全家日常、可被专业服务放大、又能持续复购的营养品类。</p>
         </div>
         <div className="fit-signal-stage" data-reveal>
           <figure className="fit-market-proof">
             <img src="assets/source/kidswant-opportunity-data.jpg" alt="孩子王用户、会员、育儿顾问与门店资源数据" />
-            <figcaption><span>MARKET PROOF</span><b>孩子王缺的不是流量，是高频刚需的入口</b><p>图片与数据口径来自你提供的孩子王2026年企业品牌资料截图。</p></figcaption>
+            <figcaption><span>OUR READING OF KIDSWANT</span><b>孩子王缺的不是流量，是能把会员关系转化为家庭日常的高频入口</b><p>从一次育儿消费走向持续家庭经营，需要一个高频、可信、可服务化的商品抓手。</p></figcaption>
           </figure>
           <div className="fit-signals">
             <article><span>SIGNAL 01</span><b>孩子王正在从「育儿」走向「育家」</b><p>服务对象从孩子的单点需求，向整个家庭的生活与关系经营延展。</p></article>
@@ -259,10 +259,10 @@ export default function Home() {
           </article>
         </div>
         <div className="fit-reasons" data-reveal>
-          <div className="fit-reason-title"><span>03 / WHY SUNDaily</span><h3>孩子王为什么选择圣迪乐</h3><p>合作对象需要同时满足四个条件，才能把一次上架变成长期家庭经营。</p></div>
-          <div className="fit-reason-grid"><article><span>高频刚需</span><b>鸡蛋是全家天天都吃的品类</b><p>高频、客单低、复购高，补足孩子王需要的日常刚需入口。</p></article><article><span>业态契合</span><b>与「育家」和「全家营养馆」同向</b><p>产品不只服务儿童，也能回应父母与整个家庭的日常营养需求。</p></article><article><span>证据充分</span><b>品质内容经得起验证</b><p>科研、标准、全产业链与品质结果支撑高品质商品表达。</p></article><article><span>合作够深</span><b>一个品类能长出多条体验线</b><p>商品、会员、亲子活动、航天主题、基地研学与礼赠可以被同一套成长逻辑连接。</p></article></div>
+          <div className="fit-reason-title"><span>03 / WHY SUNDaily</span><h3>为什么这个机会，圣迪乐更能打通</h3><p>不是“我们也有鸡蛋”，而是我们同时具备营养壁垒、品牌共识、会员经营价值与一体化落地能力。</p></div>
+          <div className="fit-reason-grid"><article><span>营养壁垒</span><b>OMEGA-3，不只是卖点，而是一条完整能力链</b><p>从科研、标准、饲料配方、规模养殖到稳定产品表达，圣迪乐能把营养差异化真正落到一枚日常鸡蛋上。</p></article><article><span>品牌同频</span><b>双方都在经营家庭信任，而不是一次低价流量</b><p>孩子王以专业顾问和会员关系服务家庭；圣迪乐以长期品质与营养专业建立信任，合作调性天然一致。</p></article><article><span>会员增量</span><b>把母婴阶段性消费，接到全家持续补货</b><p>鸡蛋的高频复购能进入孩子王现有的会员标签、DTC触达与本地履约体系，让家庭关系有更日常的交易承接。</p></article><article><span>一体落地</span><b>一个产品底座，可复用出五种经营场景</b><p>零售商品、营养内容、亲子活动、联合礼卡与基地研学共享同一套品质资产，降低跨品类试错和重复建设。</p></article></div>
         </div>
-        <div className="fit-answer" data-reveal><span>合作结论</span><b>孩子王提供家庭入口与服务场景，圣迪乐提供差异化产品、品质体系、科研内容与真实体验：双方共同把一枚蛋做成贯穿家庭成长的长期营养入口。</b><a href="#opportunity">查看合作机会 ↘</a></div>
+        <div className="fit-answer" data-reveal><span>合作结论</span><b>孩子王的机会，是把强会员关系延伸进全家日常；圣迪乐的价值，是用一枚有营养壁垒的好蛋，把商品、内容、体验与履约连成可持续经营闭环。</b><a href="#strength">为什么是圣迪乐 ↘</a></div>
       </section>
       {false && <><section id="opportunity" className="section opportunity">
         <div className="section-index">02 / OPPORTUNITY</div>

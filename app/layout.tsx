@@ -13,6 +13,7 @@ import './v4-order.css';
 import './v5-visibility.css';
 import './v6-brand-clarity.css';
 import './v7-upgrade.css';
+import './v8-story-order.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
