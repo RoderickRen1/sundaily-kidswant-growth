@@ -80,8 +80,8 @@ export default function GrowthOpportunityPage(){
     </section>
 
     <div className="growth-opportunity-intro" data-reveal><span>02 / FOUR GROWTH OPPORTUNITIES</span><h3>四个经营方向，一套递进的增长逻辑</h3><p>点击任一机会，查看完整商业洞察与圣迪乐解决方案。</p></div>
-    <section className="growth-opportunity-grid" aria-label="四大商业增长机会">
-      {opportunities.map((op,index)=><button type="button" key={op.en} className={active===index?'active':''} onClick={()=>setActive(index)} aria-expanded={active===index} data-reveal>
+    <section className="growth-opportunity-grid" aria-label="四大商业增长机会" data-reveal>
+      {opportunities.map((op,index)=><button type="button" key={op.en} className={active===index?'active':''} onClick={()=>setActive(index)} aria-expanded={active===index}>
         <span className="growth-op-number">0{index+1}</span><span className="growth-op-icon"><OpportunityIcon type={op.icon}/></span>
         <small>{op.en}</small><h3>{op.title}</h3><b>{op.strategy}</b>
         <p>{op.shortInsight}</p><div><i>圣迪乐带来什么</i><span>{op.shortSolution}</span></div>
