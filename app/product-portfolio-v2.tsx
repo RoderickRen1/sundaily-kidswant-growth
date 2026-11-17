@@ -10,7 +10,7 @@ const products = [
     family:'适合希望把家庭营养选择融入日常膳食的消费者，也能承接孕产家庭对食材品质与膳食脂肪酸来源的关注。',
   },
   {
-    id:'kids-product',number:'02',en:'KIDS SUPER NUTRITION EGG',name:'圣迪乐儿童超级营养蛋',line:'围绕儿童家庭，把营养、口感与品质标准做成更容易理解的产品。',image:'assets/source/product-kids-ppt.jpg',tone:'orange',
+    id:'kids-product',number:'02',en:'KIDS SUPER NUTRITION EGG',name:'圣迪乐儿童超级营养蛋',line:'围绕儿童家庭，把营养、口感与品质标准做成更容易理解的产品。',image:'assets/source/product-kids-giftbox.jpg',tone:'orange',
     proof:'含 2倍 OMEGA-3，宝宝更爱吃',
     facts:['含OMEGA-3、DHA、维生素A、维生素E','博士爸妈专研配方','执行圣迪乐儿童蛋生产标准','谷物喂养，细腻香滑','相关中国发明专利 CN201310620108.6','30枚/盒 · 保质期30天'],
     family:'适合已经进入相应辅食或家庭膳食阶段的儿童家庭，以更明确的儿童产品语言连接家长对营养、口感与品质的关注。',
