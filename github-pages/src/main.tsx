@@ -17,6 +17,7 @@ import '../../app/v7-upgrade.css';
 import '../../app/v8-story-order.css';
 import '../../app/v9-growth-opportunities.css';
 import '../../app/v10-product-portfolio.css';
+import '../../app/v11-readability.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

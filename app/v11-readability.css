@@ -1,0 +1,53 @@
+/* Readability calibration: preserve content and hierarchy while removing sub-10px body copy. */
+:root{--readable-muted:#67584f;--readable-soft:#bfb2aa;--readable-dark-soft:#d8cdc6}
+
+.section :is(.eyebrow,.section-kicker){font-size:12px;line-height:1.5}
+.interaction-guide,.journey-click-guide{font-size:13px;line-height:1.6}
+.interaction-guide span{font-size:11px}
+
+/* Audience and activity logic */
+.audience-guide span,.matrix-head span,.sales-head span{font-size:12px}.audience-guide b,.matrix-head b,.sales-head b{font-size:15px}
+.audience-cards small{font-size:10px}.audience-cards span{font-size:14px;line-height:1.65}.audience-cards em{font-size:12px}
+.audience-detail small{font-size:11px}.audience-detail p{font-size:14px;line-height:1.65;color:#e2d8d2}.audience-detail b{font-size:12px;line-height:1.5}.audience-benefit strong{font-size:21px;line-height:1.65}.audience-benefit span{font-size:11px;line-height:1.6;color:#b5a8a0}
+.audience-matrix th,.audience-matrix td{font-size:13px}.audience-matrix td span{font-size:12px}
+.value-chain p{font-size:14px;line-height:1.7;color:var(--readable-muted)}
+
+/* Four growth opportunities */
+.growth-strategy-head>p,.growth-opportunity-intro>span,.growth-proposal-copy>span,.growth-conclusion>span{font-size:12px}
+.growth-strategy-head nav span,.growth-foundation span{font-size:12px}.growth-foundation>p{font-size:15px;color:#ddd1ca}
+.growth-opportunity-intro p{font-size:14px;color:#c4b7af}.growth-opportunity-grid small{font-size:11px;color:#b9aca4}
+.growth-opportunity-grid>button>b{font-size:11px}.growth-opportunity-grid>button>p{font-size:15px;color:#d1c5be;line-height:1.75}
+.growth-opportunity-grid>button>div i{font-size:11px}.growth-opportunity-grid>button>div span{font-size:14px;color:#eee4de}
+.growth-opportunity-grid footer em,.growth-opportunity-grid footer>span{font-size:10px}.growth-op-detail small{font-size:11px}.growth-op-detail p{font-size:14px}.growth-detail-index>small{font-size:10px}
+.growth-proposal-copy>small,.growth-source{font-size:11px;line-height:1.75;color:#b5a79f}.growth-real-card span,.network-node{font-size:10px}
+
+/* Product portfolio */
+.portfolio-v2-head p,.portfolio-v2-head nav a{font-size:12px}.portfolio-scroll-hint{font-size:11px;color:#66564d}
+.portfolio-product-visual>span,.portfolio-product-visual>i{font-size:11px}.portfolio-product-copy>small{font-size:11px}
+.portfolio-product-copy>strong{font-size:14px}.portfolio-facts p{padding:14px 0;font-size:14px;line-height:1.55;color:#493d36}.portfolio-facts p span{font-size:10px}
+.portfolio-family-fit span,.portfolio-patent-actions>span{font-size:11px}.portfolio-family-fit p{font-size:14px;color:#51443d}.portfolio-family-fit small{font-size:11px;color:#706057}
+.portfolio-patent-actions b{font-size:10px}.portfolio-patent-actions small{font-size:12px}.portfolio-patent-actions em{font-size:9px}
+.family-match-head>p{font-size:12px}.match-paths small{font-size:10px}.match-paths p{font-size:15px}.match-paths article>div b,.match-paths article>div span,.match-paths em{font-size:11px}.match-paths em{color:#c4b8b1}.match-center span{font-size:13px}.portfolio-source p{font-size:11px;color:#6f5f56}
+.patent-detail-copy>span{font-size:11px}.patent-detail-copy b{font-size:13px}.patent-detail-copy p{font-size:16px}.patent-detail-copy small{font-size:11px;color:#6f6057}
+
+/* Activities, membership, journey and gifting */
+.campaign-meta :is(span,small),.journey-progress :is(span,small),.journey-kicker :is(span,i){font-size:11px}
+.journey-purpose{font-size:17px;color:#54453d}.journey-experience>span,.journey-value>span,.journey-output>span,.journey-program>span,.partner-model>span,.base-safety>span{font-size:11px}
+.journey-experience i{font-size:11px}.journey-experience b,.journey-output b{font-size:14px}.journey-value p{font-size:14px}.space-disclaimer{font-size:11px;color:#6e5b50}
+.journey-program article i{font-size:10px}.journey-program article b{font-size:14px}.journey-program article p,.partner-model p,.base-safety p{font-size:12px;line-height:1.7;color:#5f5047}
+.partner-model p{color:#e0e3f0}.journey-linkage span{font-size:12px}
+.light-inventory small,.card-config>span,.gift-route-head>div>span,.gift-choices>span{font-size:11px}.light-inventory p,.gift-route-head p{font-size:14px;color:#5e5047}
+.cycle-tabs small,.cycle-copy small,.route-people small,.touchpoints i{font-size:10px}.cycle-copy p,.route-people p{font-size:13px;color:#5f5148}.route-people b{font-size:11px}
+.gift-choices i,.gift-choices small,.gift-flow span,.gift-system span{font-size:10px}.gift-choices b,.gift-system b{font-size:13px}.gift-system p{font-size:14px;color:#5b4d45}
+
+/* Schedule, budget and ROI */
+.plan-cards button small{font-size:11px;color:#765f51}.plan-cards button p{font-size:15px;color:#594b43}.plan-cards button em,.plan-cards button:after{font-size:12px}.plan-guardrails span,.plan-note{font-size:12px}.plan-note{color:#65564d}
+.plan-sheet-head span{font-size:11px}.plan-sheet-head p{font-size:15px;color:#5f5047}.plan-table-wrap th{font-size:12px;color:#765844}.plan-table-wrap td{font-size:14px;line-height:1.65}.plan-sheet-foot span{font-size:11px}.plan-sheet-foot small{font-size:12px;color:#c7bbb4}
+
+/* Improve muted text contrast without changing the established palette. */
+.v3-overview,.product-portfolio-v2,.business-plan,.v2-journey,.gifting-v3{--muted:var(--readable-muted)}
+
+@media(max-width:700px){
+  .audience-cards span,.portfolio-facts p,.portfolio-family-fit p,.growth-opportunity-grid>button>p,.journey-program article p{font-size:14px}
+  .plan-table-wrap td{font-size:13px}.portfolio-patent-actions small{padding-right:0}
+}

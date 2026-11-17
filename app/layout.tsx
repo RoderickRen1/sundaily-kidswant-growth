@@ -16,6 +16,7 @@ import './v7-upgrade.css';
 import './v8-story-order.css';
 import './v9-growth-opportunities.css';
 import './v10-product-portfolio.css';
+import './v11-readability.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
