@@ -4,7 +4,7 @@ import { ArrowDown, Baby, Check, Heart, ShieldCheck, Sparkles } from 'lucide-rea
 
 const products = [
   {
-    id:'omega3-product',number:'01',en:'OMEGA-3 NUTRITION EGG',name:'圣迪乐 OMEGA-3 营养蛋',line:'把难补充的OMEGA-3，放进家庭每天都熟悉的一枚蛋。',image:'assets/source/product-omega3-ppt.jpg',tone:'gold',
+    id:'omega3-product',number:'01',en:'OMEGA-3 NUTRITION EGG',name:'圣迪乐 OMEGA-3 营养蛋',line:'把难补充的OMEGA-3，放进家庭每天都熟悉的一枚蛋。',image:'assets/source/product-omega3-giftbox.png',tone:'gold',
     proof:'相当于普通鸡蛋 2倍 OMEGA-3',
     facts:['谷物、亚麻籽喂养','含OMEGA-3、DHA、α-亚麻酸、维生素A、维生素E','OMEGA-3强化鸡蛋生产技术规范起草单位之一','甄选德国罗曼粉种鸡','30枚/盒 · 单枚50g · 保质期30天'],
     family:'适合希望把家庭营养选择融入日常膳食的消费者，也能承接孕产家庭对食材品质与膳食脂肪酸来源的关注。',
