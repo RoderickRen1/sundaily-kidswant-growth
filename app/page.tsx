@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowDown, Baby, Building2, CalendarHeart, FlaskConical, Gift, HeartHandshake, ShieldCheck, ShoppingBasket, Sparkles } from 'lucide-react';
+import { ArrowDown, Baby, Building2, CalendarHeart, Gift, HeartHandshake, ShoppingBasket, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import V2Marketing from './v2-marketing';
 import { ProductGiftCards } from './v3-upgrade';
@@ -201,35 +201,6 @@ export default function Home() {
             <div className="capability-visual">{strengthCapabilities[strengthCapability].visual==='process'?<div className="process-track">{['大小头调整','两次清洗','烘干','紫外线杀菌','喷油','电磁光检','超声波检查','称重打码分装'].map((step,index)=><div key={step}><i>{String(index+1).padStart(2,'0')}</i><span/><b>{step}</b></div>)}</div>:strengthCapabilities[strengthCapability].visual==='feed'?<div className="feed-visual"><img src="assets/source/strength-feed-soy.jpg" alt="圣迪乐优质豆类原粮"/><img src="assets/source/strength-feed-grain.jpg" alt="圣迪乐优质谷物原粮"/><strong>优质原粮<br/>科学配比</strong></div>:strengthCapabilities[strengthCapability].visual==='safety'?<div className="safety-visual"><img src="assets/source/strength-quality-award.jpg" alt="圣迪乐天府质量奖奖杯"/><img src="assets/source/strength-inspection-certificate.webp" alt="圣迪乐食品安全与国抽合格资料"/></div>:<img src={strengthCapabilities[strengthCapability].image} alt={`${strengthCapabilities[strengthCapability].title}视觉资料`}/>}<small>图片来源：用户提供的圣迪乐特通渠道产品及优势介绍</small></div>
           </article>
           <div className="strength-capability-conclusion"><span>种源与食粮管理</span><i/><span>自有基地与自动化工艺</span><i/><span>颗颗追溯与标准科研</span><i/><span>食品安全与客户验证</span></div>
-        </div>
-        <div className="strength-proof-grid" data-reveal>
-          <article className="strength-proof proof-base">
-            <img src="assets/source/sundaily-base-landscape.jpg" alt="圣迪乐现代化养殖基地" />
-            <div className="proof-shade" />
-            <span className="proof-icon"><ShieldCheck /></span>
-            <div><small>SOURCE CONTROL</small><b><strong>2250</strong>万羽自有养殖规模</b><p>全国9省22个蛋鸡基地，覆盖蛋鸡、食粮、养殖、生产、供应链与销售，承诺不外采一枚蛋。</p></div>
-          </article>
-          <article className="strength-proof proof-partners">
-            <img src="assets/source/partner-brand-wall-ppt.jpg" alt="圣迪乐已合作客户与品牌墙" />
-            <div className="partner-wall-shade" />
-            <small>TRUSTED BY LEADING BRANDS</small>
-            <b>全球优质客户的选择</b>
-            <p>从高频餐饮到国际峰会，用清晰的客户类型呈现长期服务能力。</p>
-            <div className="partner-categories"><span><i>01</i><b>连锁餐饮</b><small>KFC · 麦当劳 · 海底捞</small></span><span><i>02</i><b>500强企业</b><small>华为 · 腾讯 · Google</small></span><span><i>03</i><b>五星酒店</b><small>万豪 · 希尔顿 · 喜来登</small></span><span><i>04</i><b>国际峰会</b><small>G20 · 金砖峰会</small></span><span><i>05</i><b>新消费品牌</b><small>奈雪 · 鲍师傅 · 太二</small></span></div>
-          </article>
-          <article className="strength-proof proof-research">
-            <img src="assets/source/sundaily-scientist.jpg" alt="圣迪乐营养科研专家" />
-            <span className="proof-icon"><FlaskConical /></span><small>INDUSTRY AUTHORITY</small>
-            <b><strong>18</strong>项行业与团体标准</b>
-            <p>牵头国家“十四五”重点研发项目，拥有77项授权专利，其中发明专利8项。</p>
-          </article>
-          <article className="strength-proof proof-space">
-            <div className="space-partner-mark"><img src="assets/source/sundaily-space-partner-logo.png" alt="圣迪乐与中国航天事业合作伙伴联合标志" /></div>
-            <small>RESULT PROOF</small>
-            <b>连续10年<br />国抽合格率100%</b>
-            <p>2025年成为四川首个荣获“天府质量奖”的农牧食品品牌，并作为中国航天事业合作伙伴唯一蛋品品牌。</p>
-            <div className="space-orbit"><i /><i /></div>
-          </article>
         </div>
         <div className="strength-product-stage" data-reveal>
           <div className="product-copy">
