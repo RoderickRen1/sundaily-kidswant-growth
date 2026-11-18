@@ -115,6 +115,17 @@ const b2bGiftIdeas = [
   {name:'商务家庭礼遇卡',to:'FAMILY COURTESY',message:'以品质产品与家庭服务，表达更有温度的客户关系维护。',scene:'商务礼赠采购'}
 ];
 
+const strengthCapabilities = [
+  {key:'BREEDING',title:'种源优势',headline:'甄选德国罗曼粉种鸡',summary:'从母鸡种源开始管理鸡蛋品质，通过三代选育控制沙门氏菌传播风险。',metrics:[['330枚','一只鸡妈妈年产蛋量'],['40N+','蛋壳硬度，减少碰损'],['35—38N','产蛋后期蛋壳硬度']],points:['百年欧洲血统，性情温顺','抗冷热和应激能力强','蛋壳颜色均匀、有光泽'],visual:'image',image:'assets/source/strength-breeding-origin.webp'},
+  {key:'BASE',title:'基地优势',headline:'超五星养殖基地',summary:'圣迪乐承诺不外采一枚蛋，在自有养殖体系内管理环境、饮水、空气和温湿度。',metrics:[['9个','覆盖省份'],['22个','蛋鸡养殖基地'],['2250万羽','养殖规模']],points:['1个30万羽非笼养基地','27个青年鸡养殖基地','25℃左右环境、45%湿度、饮用水与新风系统'],visual:'image',image:'assets/source/strength-base-landscape.jpg'},
+  {key:'FEED',title:'饲料优势',headline:'坚持优质原粮喂养',summary:'母鸡食源直接影响鸡蛋风味和品质。圣迪乐根据母鸡不同生长阶段科学配比，并使用近红外检测把控食粮安全。',metrics:[['优质原粮','从食源控制品质'],['近红外','食粮层层检测'],['无腥味','呈现自然风味']],points:['杜绝以棉籽粕、菜籽粕、肉骨粉作为替代原料','按母鸡生长阶段调整营养配比','将食粮安全纳入生产源头管理'],visual:'feed',image:'assets/source/strength-feed-soy.jpg'},
+  {key:'PROCESS',title:'工艺优势',headline:'全程自动化蛋品洁净',summary:'从集蛋到包装的关键步骤进入自动化生产线，使用德国大荷兰人智能化养殖设备和荷兰MOBA蛋品加工设备。',metrics:[['300秒','一枚蛋完成检测流程'],['8道','洁净与检测环节'],['全自动','减少生产中的二次污染风险']],points:['两次清洗去污与烘干','紫外线杀菌、喷油和电磁光检','超声波裂纹检查、称重打码与分装'],visual:'process',image:''},
+  {key:'TRACE',title:'追溯优势',headline:'颗颗有喷码，信息可查询',summary:'生产者、产地和鸡舍等蛋品信息通过喷码与追溯页呈现，让品质信息可被消费者看见。',metrics:[['一蛋一码','蛋壳喷码识别'],['产地可查','查看生产基地信息'],['鸡舍可查','延伸至生产环节']],points:['手机端承接追溯信息','产品与生产档案建立对应','为消费者提供可验证的品质线索'],visual:'image',image:'assets/source/strength-traceability.webp'},
+  {key:'SCIENCE',title:'标准与科研',headline:'把科研成果写进行业标准',summary:'圣迪乐通过标准制定、重点研发项目和专利积累，将营养蛋产品开发与全产业链品质管理连接起来。',metrics:[['18项','蛋品行业与团体标准'],['77项','授权专利'],['8项','发明专利']],points:['牵头国家“十四五”重点研发项目','参与制定OMEGA-3多不饱和脂肪酸强化鸡蛋标准','参与航天生态农产品与宇航级民用食品相关标准建设'],visual:'science',image:'assets/source/sundaily-scientist.jpg'},
+  {key:'SAFETY',title:'食品安全',headline:'以食品安全管理守住底线',summary:'2001年，圣迪乐率先在蛋品行业通过HACCP认证。2015至2025年，圣迪乐鸡蛋国抽合格率100%。',metrics:[['2001年','通过HACCP认证'],['2015—2025','鸡蛋国抽合格率100%'],['2025年','获得天府质量奖']],points:['将质量和食品安全作为企业生命线','建立覆盖全产业链的品质管理','四川首个获得“天府质量奖”的农牧食品品牌'],visual:'safety',image:'assets/source/strength-quality-award.jpg'},
+  {key:'CUSTOMERS',title:'客户认可',headline:'覆盖零售与特通渠道',summary:'圣迪乐服务连锁餐饮、500强企业、五星级酒店、国际峰会和新消费品牌，同时覆盖主流零售与线上渠道。',metrics:[['全场景','零售、餐饮、酒店与企业'],['全渠道','门店、商超、便利店与电商'],['长期服务','跨行业客户交付经验']],points:['覆盖家庭日常消费场景','服务企业福利与团体采购','支持孩子王ToC与ToB两条合作线'],visual:'customers',image:'assets/source/partner-brand-wall-ppt.jpg'},
+];
+
 export default function Home() {
   const [activeInsight, setActiveInsight] = useState<number | null>(null);
   const [activeDay, setActiveDay] = useState<number | null>(null);
@@ -124,6 +135,7 @@ export default function Home() {
   const [b2cGift, setB2cGift] = useState(0);
   const [b2bGift, setB2bGift] = useState(0);
   const [strengthProduct, setStrengthProduct] = useState(0);
+  const [strengthCapability, setStrengthCapability] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
@@ -180,6 +192,15 @@ export default function Home() {
             <p>圣迪乐的优势不仅来自规模，更来自一套覆盖科研、标准、生产与结果验证的品质体系。</p>
             <span>中国第一鸡蛋品牌<sup>＊</sup></span>
           </div>
+        </div>
+        <div className="strength-capability-story" data-reveal>
+          <div className="strength-capability-head"><div><span>THE QUALITY CHAIN / 全产业链优势</span><h3>一枚好蛋的品质，<br/>来自每一道环节</h3></div><p>沿着一枚蛋从种源到家庭餐桌的路径，查看圣迪乐如何将种源、养殖、食粮、工艺、追溯和标准连成一套品质体系。点击下方环节可查看完整资料。</p></div>
+          <nav className="strength-capability-tabs" aria-label="切换圣迪乐品质优势" role="tablist">{strengthCapabilities.map((item,index)=><button type="button" role="tab" aria-selected={strengthCapability===index} className={strengthCapability===index?'active':''} onClick={()=>setStrengthCapability(index)} key={item.key}><i>{String(index+1).padStart(2,'0')}</i><b>{item.title}</b><small>{item.key}</small></button>)}</nav>
+          <article className={`strength-capability-panel capability-${strengthCapabilities[strengthCapability].visual}`} key={strengthCapabilities[strengthCapability].key}>
+            <div className="capability-copy"><span>{String(strengthCapability+1).padStart(2,'0')} / {strengthCapabilities[strengthCapability].key}</span><h3>{strengthCapabilities[strengthCapability].headline}</h3><p>{strengthCapabilities[strengthCapability].summary}</p><div className="capability-metrics">{strengthCapabilities[strengthCapability].metrics.map(metric=><div key={metric[0]}><b>{metric[0]}</b><small>{metric[1]}</small></div>)}</div><ul>{strengthCapabilities[strengthCapability].points.map(point=><li key={point}>{point}</li>)}</ul></div>
+            <div className="capability-visual">{strengthCapabilities[strengthCapability].visual==='process'?<div className="process-track">{['大小头调整','两次清洗','烘干','紫外线杀菌','喷油','电磁光检','超声波检查','称重打码分装'].map((step,index)=><div key={step}><i>{String(index+1).padStart(2,'0')}</i><span/><b>{step}</b></div>)}</div>:strengthCapabilities[strengthCapability].visual==='feed'?<div className="feed-visual"><img src="assets/source/strength-feed-soy.jpg" alt="圣迪乐优质豆类原粮"/><img src="assets/source/strength-feed-grain.jpg" alt="圣迪乐优质谷物原粮"/><strong>优质原粮<br/>科学配比</strong></div>:strengthCapabilities[strengthCapability].visual==='safety'?<div className="safety-visual"><img src="assets/source/strength-quality-award.jpg" alt="圣迪乐天府质量奖奖杯"/><img src="assets/source/strength-inspection-certificate.webp" alt="圣迪乐食品安全与国抽合格资料"/></div>:<img src={strengthCapabilities[strengthCapability].image} alt={`${strengthCapabilities[strengthCapability].title}视觉资料`}/>}<small>图片来源：用户提供的圣迪乐特通渠道产品及优势介绍</small></div>
+          </article>
+          <div className="strength-capability-conclusion"><span>种源与食粮管理</span><i/><span>自有基地与自动化工艺</span><i/><span>颗颗追溯与标准科研</span><i/><span>食品安全与客户验证</span></div>
         </div>
         <div className="strength-proof-grid" data-reveal>
           <article className="strength-proof proof-base">
