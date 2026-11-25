@@ -4,7 +4,7 @@
 
 ## 在线访问
 
-[查看当前公开网站](https://sundaily-kidswant-growth.rjhy188816.chatgpt.site/)
+[查看当前公开网站](https://roderickren1.github.io/sundaily-kidswant-growth/)
 
 ## 网站内容
 
